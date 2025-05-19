@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #CECCC8;
+    height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem;
+}
+
+.navbar h1 {
+    font-size: 35px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 55px;
+    align-items: center;
+    list-style: none;
+    margin-left: 10rem;
+}
+
+.navbar ul li {
+    font-size: 30px;
+}
+
+.booking-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.booking-section img {
+    min-width: 1200px;
+    max-height: 624px;
+    border-radius: 50px;
+}
+
+.booking-section h1 {
+    position: absolute;
+    top: 20%;
+    right: 45%;
+    font-size: 50px;
+}
+
+.enter-info {
+    position: absolute;
+    top: 90%;
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    height: 170px;
+    background: #F0EFE7;
+    border-radius: 50px;
+}
+
+.select-type {
+    display: flex;
+    gap: 65px;
+    margin: 30px 0 10px 30px;
+}
+
+.hr {
+    display: flex;
+    gap: 35px;
+    margin: 0 0 20px 30px;
+}
+
+.hr-selected {
+    background: #6D99B5;
+    min-width: 150px;
+    height: 5px;
+}
+
+.hr-choosen {
+    background: #6D99B5;
+    min-width: 180px;
+    height: 5px;
+}
+
+
+.search-flight {
+    position: relative;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 140px;
+}
+
+.basic-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.basic-details input {
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 45px;
+}
+
+#seats {
+    width: 90px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #6D99B5;
+}
+
+
+
+.search button {
+    position: absolute;
+    top: 64%;
+    right: 30px;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background: #6D99B5;
+    text-align: center;
+
+}
+
+.flight-section {
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+
+}
+
+.flights {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #6D99B5;
+    width: 1200px;
+    padding: 40px 0 40px 0;
+    border-radius: 50px;
+    margin-top: 10rem;
+}
+
+.flight-details {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #D9D9D9;
+    width: 1000px;
+    height: 150px;
+    margin-top: 2rem;
+    border-radius: 50px;
+}
+
+.company {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    width: 150px;
+    height: 75px;
+    border-radius: 20px 0 0 20px;
+}
+
+.from-to {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #FFFFFF;
+    width: 597px;
+    height: 75px;
+}
+
+.book button {
+    background: #6D99B5;
+    width: 120px;
+    height: 75px;
+    border: none;
+    border-radius: 0 20px 20px 0;
+}
+
+.time-place,
+.hour-stop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+hr {
+    background: #6D99B5;
+    width: 120px;
+    height: 2px;
+    border: none;
+    margin-right: 8px;
+}
+
+.fa-solid {
+    color: #6D99B5;
+}
