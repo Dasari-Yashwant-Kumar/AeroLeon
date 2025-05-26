@@ -72,19 +72,21 @@ body {
 .hr {
     display: flex;
     gap: 35px;
-    margin: 0 0 20px 30px;
+    
 }
 
 .hr-selected {
     background: #6D99B5;
     min-width: 150px;
     height: 5px;
+    margin: 0 0 20px 30px;
 }
 
 .hr-choosen {
     background: #6D99B5;
     min-width: 180px;
     height: 5px;
+    margin: 0 0 20px 0;
 }
 
 
@@ -106,7 +108,11 @@ body {
     width: 150px;
     height: 50px;
     border-radius: 10px;
-    padding-left: 45px;
+    padding-left: 50px;
+}
+
+.departure input, .return input{
+    padding: 20px;
 }
 
 #seats {
@@ -143,7 +149,6 @@ body {
 
 .flight-section {
     display: flex;
-    
     justify-content: center;
     align-items: center;
 
@@ -225,4 +230,31 @@ hr {
 
 .fa-solid {
     color: #6D99B5;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #6D99B5;
+    margin-top: 40px;
+    min-height: 200px;
+}
+
+.additional {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.addtional-part-1,
+.addtional-part-2 {
+    padding: 0 40px 0 40px;
+
+}
+
+.addtional-part-1 h3,
+.addtional-part-2 h3 {
+    padding-top: 20px;
 }

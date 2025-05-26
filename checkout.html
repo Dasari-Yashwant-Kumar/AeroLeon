@@ -1,25 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AeroLeon</title>
     <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <div class="details">
         <div class="flight-info">
             <div class="basic-flight">
+                <div class="flight-heading">
+                    <h2>Flight Details</h2>
+                </div>
+                <div class="flight-location">
+                    <p>HYD To BLR</p>
+                    <p>2:00 PM IST-3:00 PM IST (1H, Non-Stop)</p>
+                </div>
+
+                <div class="date-day">
+                    <p>Indigo</p>
+                    <i class="fa-solid fa-circle-dot"></i>
+                    <p>Sun</p>  
+                    <i class="fa-solid fa-circle-dot"></i>
+                    <p>1 JUN 2025</p>
+                </div>
+
 
             </div>
             <div class="fare">
-
+                <div class="fare-heading">
+                    <h2>Your Fare: Regular Fare</h2>
+                </div>
+                <div class="fare-instructions">
+                    <p><i class="fa-solid fa-circle-check"></i> Carry-on bags included</p>
+                    <p><i class="fa-solid fa-circle-check"></i> 1st Checked bag included</p>
+                    <p><i class="fa-solid fa-circle-xmark"></i> Non-refundable</p>
+                    <p><i class="fa-solid fa-circle-xmark"></i> Changes not allowed</p>
+                </div>
             </div>
         </div>
         <div class="price-summary">
+            <h1 class="summary-heading">Price Summary</h1>
+            <div class="price-break">
+                <div class="traveler">
+                    <div class="traveler-info">
+                        <h2>Traveler 1: Adult</h2>
+                    </div>
+
+                    <div class="traveler-amount">
+                        <p>Rs. 3000</p>
+                    </div>
+                </div>
+
+                <div class="traveler-break">
+                    <div class="break-down">
+                        <h3>Flight</h3>
+                        <h3>Taxes, fees and charges</h3>
+                    </div>
+                    <div class="amountbreak-down">
+                        <p>Rs. 2200</p>
+                        <p>Rs. 800</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <div class="trip-total">
+                <h2>Trip-total</h2>
+                <p>Rs. 3000</p>
+            </div>
+            <div class="btn">
+                <button>Check Out</button>
+            </div>
             
         </div>
     </div>
-    
+
 </body>
+
 </html>

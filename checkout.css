@@ -2,8 +2,94 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 25px;
 }
 
 body{
     background: #6D99B5;
+}
+
+.details{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.basic-flight, .fare{
+    background: #F0EFE7;
+    width: 700px;
+    height: 300px;
+    border-radius: 80px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 5px 0 40px 40px;
+}
+
+.price-summary{
+    background: #F0EFE7;
+    width: 636px;
+    height: 645px;
+    border-radius: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    padding: 30px 30px 0 30px;
+    margin-top: 40px;
+}
+
+.traveler, .traveler-break{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+hr{
+    margin-top: 100px;
+    background: #6D99B5;
+    height: 4px;
+    border: none;
+    margin-bottom: 20px; 
+}
+
+.trip-total{
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-day{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 350px 0 0;
+}
+
+.fa-circle-dot{
+    font-size: 10px;
+}
+
+.fa-circle-check{
+    color: #008000;
+}
+
+.fa-circle-xmark{
+    color: #FF0000;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+button{
+    background: #6D99B5;
+    width: 448px;
+    height: 81px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+
 }
