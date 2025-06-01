@@ -1,7 +1,7 @@
 let airportData = {};
 
 const airport = async () => {
-    let response = await fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json");
+    let response = await fetch("./airports.json");
     airportData = await response.json();
 }
 
@@ -14,11 +14,11 @@ const filterAirport = (input) => {
     for (const code in airportData) {
         const airport = airportData[code];
         const name = airport.name && airport.name.toLowerCase() || "";
-        const city = airport.city && airport.city.toLowerCase() || "";
-        const country = airport.country && airport.country.toLowerCase() || "";
+        const city = airport.municipality && airport.municipality.toLowerCase() || "";
+        const country = airport.iso_country && airport.iso_country.toLowerCase() || "";
 
         if (name.includes(inputintolower) || city.includes(inputintolower) || country.includes(inputintolower)) {
-            result.push(`${airport.name} (${airport.city}, ${airport.country})`)
+            result.push(`${airport.name}-(${airport.iata_code}) (${airport.municipality}, ${airport.iso_country})`)
         }
     }
 
@@ -40,6 +40,7 @@ function showResult(result, inputElement) {
 
         li.addEventListener("click", () => {
             inputElement.value = item;
+            inputElement.dataset.iata = item.iata_code;
             resultEl.innerHTML = "";
         })
 
@@ -50,8 +51,12 @@ function showResult(result, inputElement) {
     })
 }
 
+
+
 const fromInput = document.getElementById("from");
+const fromInputData = fromInput.value;
 const toInput = document.getElementById("to");
+const toInputData = toInput.value;
 
 
 
@@ -105,21 +110,46 @@ seats.addEventListener("blur", () => {
 const search = document.querySelector(".search");
 const flightSection = document.querySelector(".flight-section");
 const bottom = document.querySelector(".bottom");
-const departure = document.querySelector("#departure");
-const returnBack = document.querySelector("#return");
 
-search.addEventListener("click", ()=>{
-    if(fromInput.value !== "" && toInput.value !== "" && seats.value !== "" && departure.value !== "" && returnBack.value !== ""){
+
+search.addEventListener("click", () => {
+    const departure = document.querySelector("#departure").value;
+    const returnBack = document.querySelector("#return").value;
+    const count = document.querySelector("#seats").value;
+    const fromIata = fromInput.dataset.iata;
+    const toIata = toInput.dataset.iata;
+    if (fromInput.value !== "" && toInput.value !== "" && seats.value !== "" && departure.value !== "" && returnBack.value !== "") {
         flightSection.classList.toggle("selected");
-    bottom.classList.toggle("chosen");
-    flightSection.scrollIntoView({behavior: "smooth", block: "center"})
-    } else{
+        bottom.classList.toggle("chosen");
+        flightSection.scrollIntoView({ behavior: "smooth", block: "center" });
+        const oneWayFlight = async () => {
+            const url = `https://flight-fare-search.p.rapidapi.com/v2/flights/?from=${fromIata}&to=${toIata}&adult=${count}&type=economy&currency=INR`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'x-rapidapi-key': '8f3a781167mshdd9ba43099423c2p1baa46jsn1ada101d4454',
+                    'x-rapidapi-host': 'flight-fare-search.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.text();
+                console.log(result);
+            } catch (error) {
+                console.error(error);
+            }
+
+        }
+
+        console.log(oneWayFlight());
+
+    } else {
         alert("Enter all the information");
     }
 
-
-    
 })
+
 
 
 
