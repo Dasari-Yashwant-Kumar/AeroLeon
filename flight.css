@@ -153,7 +153,6 @@ body {
 }
 
 .flight-section {
-    
     display: none;
 }
 
@@ -195,6 +194,7 @@ body {
     width: 150px;
     height: 75px;
     border-radius: 20px 0 0 20px;
+    font-size: 80%;
 }
 
 .from-to {
@@ -204,17 +204,35 @@ body {
     background: #FFFFFF;
     width: 597px;
     height: 75px;
+} 
+
+.book button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #6D99B5;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    font-size: 100%;
+    color: #FFFFFF;
+
 }
 
-.book button {
+.book {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: #6D99B5;
+    color: #FFFFFF;
     width: 120px;
     height: 75px;
     border: none;
     border-radius: 0 20px 20px 0;
 }
 
-.time-place,
+.departure-time-place, .arrival-time-place,
 .hour-stop {
     display: flex;
     flex-direction: column;
