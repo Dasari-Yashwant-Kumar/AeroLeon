@@ -182,7 +182,7 @@ search.addEventListener("click", () => {
 
                 const segments = flight.itineraries[0].segments;
                 const stoppingPlaces = [];
-                segments.slice(0,-1).forEach((seg)=>{
+                segments.slice(0, -1).forEach((seg) => {
                     stoppingPlaces.push(seg.arrival.iataCode);
                 })
                 const departureCity = segments[0].departure.iataCode;
@@ -194,11 +194,11 @@ search.addEventListener("click", () => {
                 const airCraftName = dictionaries.carriers?.[carrierCode] || carrierCode;
 
                 const basePrice = flight.price.base;
-                const basePriceInRupee = (parseFloat(basePrice*86)).toFixed(2);
+                const basePriceInRupee = (parseFloat(basePrice * 86)).toFixed(2);
                 const totalPrice = flight.price.total;
-                const totalPriceInRupee = (parseFloat(totalPrice*86).toFixed(2));
+                const totalPriceInRupee = (parseFloat(totalPrice * 86).toFixed(2));
                 const currency = "Rs.";
-    
+
                 const taxes = (parseFloat(totalPrice) - parseFloat(basePrice)).toFixed(2);
 
                 function formatTime(dateTime) {
@@ -279,14 +279,14 @@ search.addEventListener("click", () => {
 
 
                 const noOfStopsPara = document.createElement("p");
-                
-                    if(stops>0){
-                      noOfStopsPara.textContent = `${stops} stop${stop>1 ? "s":""} : ${stoppingPlaces.join(", ")}`
-                    } else{
-                        noOfStopsPara.textContent= "Non-stop"
-                    }
-                
-    
+
+                if (stops > 0) {
+                    noOfStopsPara.textContent = `${stops} stop${stop > 1 ? "s" : ""} : ${stoppingPlaces.join(", ")}`
+                } else {
+                    noOfStopsPara.textContent = "Non-stop"
+                }
+
+
 
                 noOfStops.appendChild(noOfStopsPara);
                 hourStop.appendChild(noOfStops);
@@ -320,6 +320,7 @@ search.addEventListener("click", () => {
                 book.classList.add("book");
 
                 const button = document.createElement("button");
+                button.classList.add("bookBtn");
                 button.textContent = "book";
 
                 const pricePara = document.createElement("p");
@@ -333,7 +334,7 @@ search.addEventListener("click", () => {
                 flightDetails.append(company, fromTo, book);
 
                 flights.appendChild(flightDetails);
-                
+
             });
         } catch (error) {
             console.error("Failed to fetch flights:", error);
@@ -343,3 +344,22 @@ search.addEventListener("click", () => {
 
     fetchFlights();
 });
+
+const bookFlight = document.querySelectorAll(".book");
+const date = document.querySelector("#departure");
+
+bookFlight.forEach((button)=>{
+    button.addEventListener("click", () => {
+    window.location.href = "checkout.html"
+    localStorage.setItem("departureCity", JSON.stringify(departureCity));
+    localStorage.setItem("arrivalCity", JSON.stringify(arrivalCity));
+    localStorage.setItem("formattedDepartureTime", JSON.stringify(formattedDepartureTime));
+    localStorage.setItem("formattedArrivalTime", JSON.stringify(formattedArrivalTime));
+    localStorage.setItem("airCraftName", JSON.stringify(airCraftName));
+    localStorage.setItem("duration", JSON.stringify(duration));
+    localStorage.setItem("stops", JSON.stringify(stops));
+    localStorage.setItem("date", JSON.stringify(date));
+})
+})
+
+
