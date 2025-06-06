@@ -165,6 +165,7 @@ search.addEventListener("click", () => {
             const result = await response.json();
 
             console.log("API result:", result);
+    
 
             const flightData = result.data || [];
             const dictionaries = result.dictionaries || {};
@@ -195,11 +196,15 @@ search.addEventListener("click", () => {
 
                 const basePrice = flight.price.base;
                 const basePriceInRupee = (parseFloat(basePrice * 86)).toFixed(2);
-                const totalPrice = flight.price.total;
-                const totalPriceInRupee = (parseFloat(totalPrice * 86).toFixed(2));
+                const totalPrice = flight.price.grandTotal;
+                const totalPriceInRupee = (parseFloat(totalPrice * 86)).toFixed(2);
                 const currency = "Rs.";
 
                 const taxes = (parseFloat(totalPrice) - parseFloat(basePrice)).toFixed(2);
+                    console.log("Base Price:", basePrice);              // e.g. "45.00"
+    console.log("Total Price:", totalPrice);            // e.g. "54.60"
+    console.log("Base Price ₹:", basePriceInRupee);
+    console.log("Total Price ₹:", totalPriceInRupee);
 
                 function formatTime(dateTime) {
                     if (!dateTime || !dateTime.includes("T")) return "Invalid Time";
@@ -321,13 +326,29 @@ search.addEventListener("click", () => {
 
                 const button = document.createElement("button");
                 button.classList.add("bookBtn");
-                button.textContent = "book";
+                button.textContent = `${currency} ${basePriceInRupee} book`;
 
-                const pricePara = document.createElement("p");
-                pricePara.classList.add("price");
-                pricePara.textContent = `${currency} ${basePriceInRupee}`;
+                const date = document.querySelector("#departure").value;
+               
 
-                book.appendChild(pricePara);
+                button.addEventListener("click", async () => {
+                    localStorage.setItem("departureCity", JSON.stringify(departureCity));
+                    localStorage.setItem("arrivalCity", JSON.stringify(arrivalCity));
+                    localStorage.setItem("formattedDepartureTime", JSON.stringify(formattedDepartureTime));
+                    localStorage.setItem("formattedArrivalTime", JSON.stringify(formattedArrivalTime));
+                    localStorage.setItem("airCraftName", JSON.stringify(airCraftName));
+                    localStorage.setItem("duration", JSON.stringify(duration));
+                    localStorage.setItem("stops", JSON.stringify(stops));
+                    localStorage.setItem("date", JSON.stringify(date));
+                    localStorage.setItem("basePriceInRupee", JSON.stringify(basePriceInRupee));
+                    localStorage.setItem("totalPriceInRupee", JSON.stringify(totalPriceInRupee))
+                        
+                 setTimeout(()=>{
+                        window.location.href = "checkout.html"
+                    },100)
+                     
+                })
+
                 book.appendChild(button);
 
 
@@ -343,23 +364,8 @@ search.addEventListener("click", () => {
     };
 
     fetchFlights();
+     
+
 });
-
-const bookFlight = document.querySelectorAll(".book");
-const date = document.querySelector("#departure");
-
-bookFlight.forEach((button)=>{
-    button.addEventListener("click", () => {
-    window.location.href = "checkout.html"
-    localStorage.setItem("departureCity", JSON.stringify(departureCity));
-    localStorage.setItem("arrivalCity", JSON.stringify(arrivalCity));
-    localStorage.setItem("formattedDepartureTime", JSON.stringify(formattedDepartureTime));
-    localStorage.setItem("formattedArrivalTime", JSON.stringify(formattedArrivalTime));
-    localStorage.setItem("airCraftName", JSON.stringify(airCraftName));
-    localStorage.setItem("duration", JSON.stringify(duration));
-    localStorage.setItem("stops", JSON.stringify(stops));
-    localStorage.setItem("date", JSON.stringify(date));
-})
-})
 
 
