@@ -100,23 +100,31 @@ seats.addEventListener("keydown", (event) => {
 seats.addEventListener("blur", seatCount);
 
 // Toggle return date visibility
-const oneWayRadio = document.querySelector('input[value="oneway"]');
-const roundTripRadio = document.querySelector('input[value="round"]');
-const returnSection = document.getElementById("return-section");
+const oneWayTrip = document.querySelector(".one-way");
+const hrChosen = document.querySelector(".hr-choosen");
+const roundTrip = document.querySelector(".round-trip");
+const hrSelected = document.querySelector(".hr-selected");
+const oneWay = document.querySelector("#departure");
+const returnSection = document.querySelector("#return-section");
+const searchFlight = document.querySelector(".search-flight");
+const tripType = "round";
 
-function toggleReturnDate() {
-    if (roundTripRadio.checked) {
-        returnSection.style.display = "block";
-    } else {
-        returnSection.style.display = "none";
-    }
-}
+oneWayTrip.addEventListener("click", () => {
+    hrChosen.style.display = "block";
+    hrSelected.style.display = "none";
+    returnSection.style.display = "none";
+    searchFlight.classList.add("active");
+    tripType = "one-way";
 
-oneWayRadio.addEventListener("change", toggleReturnDate);
-roundTripRadio.addEventListener("change", toggleReturnDate);
+})
 
-// Set initial state
-toggleReturnDate();
+roundTrip.addEventListener("click", () => {
+    hrChosen.style.display = "none";
+    hrSelected.style.display = "block";
+    returnSection.style.display = "block";
+    searchFlight.classList.remove("active");
+    tripType = "round";
+})
 
 // Search logic
 const search = document.querySelector(".search button");
@@ -129,7 +137,7 @@ search.addEventListener("click", () => {
     const count = document.querySelector("#seats").value;
     const fromIata = fromInput.dataset.iata;
     const toIata = toInput.dataset.iata;
-    const trip = document.querySelector('input[name="trip"]:checked')?.value || "oneway";
+    const trip = tripType;
 
     if (
         !fromIata ||
@@ -165,7 +173,12 @@ search.addEventListener("click", () => {
             const result = await response.json();
 
             console.log("API result:", result);
-    
+            console.log("tripType:", tripType);
+            console.log("returnBack:", returnBack);
+            console.log("URL:", url);
+
+
+
 
             const flightData = result.data || [];
             const dictionaries = result.dictionaries || {};
@@ -199,12 +212,6 @@ search.addEventListener("click", () => {
                 const totalPrice = flight.price.grandTotal;
                 const totalPriceInRupee = (parseFloat(totalPrice * 86)).toFixed(2);
                 const currency = "Rs.";
-
-                const taxes = (parseFloat(totalPrice) - parseFloat(basePrice)).toFixed(2);
-                    console.log("Base Price:", basePrice);              // e.g. "45.00"
-    console.log("Total Price:", totalPrice);            // e.g. "54.60"
-    console.log("Base Price ₹:", basePriceInRupee);
-    console.log("Total Price ₹:", totalPriceInRupee);
 
                 function formatTime(dateTime) {
                     if (!dateTime || !dateTime.includes("T")) return "Invalid Time";
@@ -329,7 +336,8 @@ search.addEventListener("click", () => {
                 button.textContent = `${currency} ${basePriceInRupee} book`;
 
                 const date = document.querySelector("#departure").value;
-               
+                const noOfPerson = document.querySelector("#seats").value;
+
 
                 button.addEventListener("click", async () => {
                     localStorage.setItem("departureCity", JSON.stringify(departureCity));
@@ -341,12 +349,13 @@ search.addEventListener("click", () => {
                     localStorage.setItem("stops", JSON.stringify(stops));
                     localStorage.setItem("date", JSON.stringify(date));
                     localStorage.setItem("basePriceInRupee", JSON.stringify(basePriceInRupee));
-                    localStorage.setItem("totalPriceInRupee", JSON.stringify(totalPriceInRupee))
-                        
-                 setTimeout(()=>{
+                    localStorage.setItem("totalPriceInRupee", JSON.stringify(totalPriceInRupee));
+                    localStorage.setItem("noOfPerson", JSON.stringify(noOfPerson));
+
+                    setTimeout(() => {
                         window.location.href = "checkout.html"
-                    },100)
-                     
+                    }, 100)
+
                 })
 
                 book.appendChild(button);
@@ -364,7 +373,7 @@ search.addEventListener("click", () => {
     };
 
     fetchFlights();
-     
+
 
 });
 

@@ -73,6 +73,9 @@ app.get('/api/flights', async (req, res) => {
     );
 
     console.log("Amadeus API response received");
+    console.log("🚀 Amadeus Request URL:");
+console.log("https://test.api.amadeus.com/v2/shopping/flight-offers?" + new URLSearchParams(params));
+
 
     res.json(response.data);
 

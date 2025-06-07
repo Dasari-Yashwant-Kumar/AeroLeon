@@ -26,9 +26,17 @@
         <h1>Hey guys! Where are you <br />Flying to?</h1>
         <div class="enter-info">
             <div class="select-type">
-                <h2>Round Trip</h2>
-                <h2>One-Way Trip</h2>
+                <div class="option-1">
+                    <h2 class="round-trip">Round Trip</h2>
+                    <hr class="hr-selected">
+                </div>
+                <div class="option-2">
+                    <h2 class="one-way">One-Way Trip</h2>
+                    <hr class="hr-choosen">
+
+                </div>
             </div>
+
 
             <div class="search-flight">
                 <div class="basic-details">
@@ -60,23 +68,18 @@
                 <div class="basic-details">
                     <label for="departure">Departure</label>
                     <div class="input-wrapper">
-                        <input type="date" id="departure" name="departure" />
+                        <input type="date" id="departure"/>
                     </div>
                 </div>
 
-                <div class="basic-details" id="return-section" style="display: none;">
+                <div class="basic-details" id="return-section">
                     <label for="return">Return</label>
                     <div class="input-wrapper">
-                        <input type="date" id="return" name="return" />
+                        <input type="date" id="return" name="trip" />
                     </div>
                 </div>
 
-                <div class="basic-details">
-                    <div class="trip-type">
-                        <label><input type="radio" name="trip" value="oneway" checked /> One Way</label>
-                        <label><input type="radio" name="trip" value="round" /> Round Trip</label>
-                    </div>
-                </div>
+               
 
                 <div class="basic-details">
                     <label for="seats">Seats</label>
@@ -95,7 +98,7 @@
 
     <div class="flight-section">
         <div class="flights">
-            
+
         </div>
     </div>
 
