@@ -1,21 +1,22 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-size: 25px;
 }
 
-body{
+body {
     background: #6D99B5;
 }
 
-.details{
+.details {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.basic-flight, .fare{
+.OneWay,
+.fare {
     background: #F0EFE7;
     width: 700px;
     height: 300px;
@@ -27,66 +28,106 @@ body{
     padding: 5px 0 40px 40px;
 }
 
-.price-summary{
+.roundOne,
+.roundTwo {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    justify-content: space-evenly;
+    padding: 15px 0 40px 40px;
+    height: 200px;
+}
+
+.roundFlights {
     background: #F0EFE7;
+    width: 700px;
+    border-radius: 80px;
+    margin-top: 40px;
+}
+
+.price-summary {
+     background: #F0EFE7;
     width: 636px;
     height: 645px;
     border-radius: 80px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    justify-content: flex-start;
+    padding: 30px 30px 0 30px;
+    margin-top: 40px;
+   
+}
+
+.price-summary.activated {
+    background: #F0EFE7;
+    width: 636px;
+    height: 745px;
+    border-radius: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     padding: 30px 30px 0 30px;
     margin-top: 40px;
 }
 
-.traveler, .traveler-break{
+.traveler,
+.traveler-break {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
 }
 
-hr{
+hr {
     margin-top: 100px;
     background: #6D99B5;
     height: 4px;
     border: none;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
-.trip-total{
+.chosen{
+    margin-top: 200px;
+    background: #6D99B5;
+    height: 4px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+
+.trip-total {
     display: flex;
     justify-content: space-between;
 }
 
-.date-day{
+.date-day {
     display: flex;
-    justify-content: start;  
+    justify-content: start;
     gap: 5%;
-    align-items: center;   
+    align-items: center;
 }
 
-.fa-circle-dot{
+.fa-circle-dot {
     font-size: 10px;
 }
 
-.fa-circle-check{
+.fa-circle-check {
     color: #008000;
     font-size: 80%;
 }
 
-.fa-circle-xmark{
+.fa-circle-xmark {
     color: #FF0000;
     font-size: 80%;
 }
 
-.btn{
+.btn {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 40px;
 }
 
-button{
+button {
     background: #6D99B5;
     width: 448px;
     height: 81px;

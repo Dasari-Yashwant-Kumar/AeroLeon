@@ -167,7 +167,19 @@ body {
     align-items: center;
     
 }
+.optionsHolder{
+     display: flex;
+     flex-direction: column;
+}
+.option, .option1{
+    display: flex;
+   flex-direction: row;
+   gap: 15px;
+    align-items: center;
+    margin-top: 1rem;
+    
 
+}
 .flights {
     display: flex;
     flex-direction: column;
@@ -180,13 +192,13 @@ body {
     margin-top: 10rem;
 }
 
-.flight-details {
+.flight-details  {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     background: #D9D9D9;
     width: 1000px;
-    height: 150px;
+    height: 250px;
     margin-top: 2rem;
     border-radius: 50px;
 }

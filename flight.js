@@ -72,7 +72,7 @@ const handleInput = (event) => {
 fromInput.addEventListener("input", handleInput);
 toInput.addEventListener("input", handleInput);
 
-// Seat validation
+
 const seats = document.querySelector("#seats");
 
 const seatCount = () => {
@@ -97,23 +97,25 @@ seats.addEventListener("keydown", (event) => {
         seats.blur();
     }
 });
-seats.addEventListener("blur", seatCount);
+seats.addEventListener("blur", seatCount());
 
-// Toggle return date visibility
 const oneWayTrip = document.querySelector(".one-way");
 const hrChosen = document.querySelector(".hr-choosen");
 const roundTrip = document.querySelector(".round-trip");
+roundTrip.style.cursor = "pointer"
 const hrSelected = document.querySelector(".hr-selected");
 const oneWay = document.querySelector("#departure");
+oneWayTrip.style.cursor = "pointer"
 const returnSection = document.querySelector("#return-section");
 const searchFlight = document.querySelector(".search-flight");
-const tripType = "round";
+let tripType = "round";
 
 oneWayTrip.addEventListener("click", () => {
     hrChosen.style.display = "block";
     hrSelected.style.display = "none";
     returnSection.style.display = "none";
     searchFlight.classList.add("active");
+
     tripType = "one-way";
 
 })
@@ -195,23 +197,40 @@ search.addEventListener("click", () => {
                 flightDetails.classList.add("flight-details");
 
                 const segments = flight.itineraries[0].segments;
+                const segments1 = flight.itineraries[1]?.segments;
+
                 const stoppingPlaces = [];
                 segments.slice(0, -1).forEach((seg) => {
                     stoppingPlaces.push(seg.arrival.iataCode);
                 })
+
+
+
+                const stoppingPlaces1 = segments1 ? segments1.slice(0, -1).map(seg => seg.arrival.iataCode) : [];
+
+
+
                 const departureCity = segments[0].departure.iataCode;
                 const arrivalCity = segments[segments.length - 1].arrival.iataCode;
                 const duration = flight.itineraries[0].duration;;
                 const stops = segments.length - 1;
                 const aircraftCode = segments[0].aircraft?.code;
-                const carrierCode = segments[0].operating.carrierCode;
+                const carrierCode = segments[0].carrierCode;
                 const airCraftName = dictionaries.carriers?.[carrierCode] || carrierCode;
+
+                const departureCity1 = segments1[0].departure.iataCode;
+                const arrivalCity1 = segments1[segments1.length - 1].arrival.iataCode;
+                const duration1 = flight.itineraries[1].duration;;
+                const stops1 = segments1.length - 1;
+                const aircraftCode1 = segments1[0].aircraft?.code;
+                const carrierCode1 = segments1[0].carrierCode;
+                const airCraftName1 = dictionaries.carriers?.[carrierCode1] || carrierCode1;
 
                 const basePrice = flight.price.base;
                 const basePriceInRupee = (parseFloat(basePrice * 86)).toFixed(2);
                 const totalPrice = flight.price.grandTotal;
                 const totalPriceInRupee = (parseFloat(totalPrice * 86)).toFixed(2);
-                const currency = "Rs.";
+
 
                 function formatTime(dateTime) {
                     if (!dateTime || !dateTime.includes("T")) return "Invalid Time";
@@ -224,119 +243,91 @@ search.addEventListener("click", () => {
                 }
 
                 const formattedDuration = duration.slice(2);
+                const formattedDuration1 = duration1.slice(2);
 
                 const formattedDepartureTime = formatTime(segments[0].departure.at);
                 const formattedArrivalTime = formatTime(segments[segments.length - 1].arrival.at);
 
-                const company = document.createElement("div");
-                company.classList.add("company");
+                const formattedDepartureTime1 = formatTime(segments1[0].departure.at);
+                const formattedArrivalTime1 = formatTime(segments1[segments1.length - 1].arrival.at);
 
-                const flightName = document.createElement("h2");
-                flightName.textContent = `${airCraftName} (${aircraftCode})`;
+                const optionsHolder = document.createElement("div");
+                optionsHolder.classList.add("optionsHolder");
 
-                company.appendChild(flightName);
+                let info = "";
 
-                const fromTo = document.createElement("div");
-                fromTo.classList.add("from-to");
+                if (trip === "round") {
+                    info = `
+                <div class="option">
+                    <div class="company"><h2>${airCraftName} (${aircraftCode})</h2></div>
+                        <div class="from-to">
+                           <div class="departure-time-place">
+                           <div class="timeOfDeparture"><h2>${formattedDepartureTime}</h2></div>
+                           <div class="startingPlace"><h2>${departureCity}</h2></div>
+                        </div>
+                        <div class="hour-stop">
+                           <div class="totalTime"><p>${formattedDuration}</p></div>
+                           <div class="arrow-icon"><hr><i class="fa-solid fa-plane"></i></div>
+                           <div class="stop"><p>${stops ? `${stops} stop${stops > 1 ? 's' : ''} : ${stoppingPlaces.join(", ")}` : "Non-stop"}</p></div>
+                        </div>
+                        <div class="arrival-time-place">
+                           <div class="arrivalTime"><h2>${formattedArrivalTime}</h2></div>
+                           <div class="arrivalPlace"><h2>${arrivalCity}</h2></div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="option1">
+                    <div class="company"><h2>${airCraftName1} (${aircraftCode1})</h2></div>
+                        <div class="from-to">
+                           <div class="departure-time-place">
+                           <div class="timeOfDeparture"><h2>${formattedDepartureTime1}</h2></div>
+                           <div class="startingPlace"><h2>${departureCity1}</h2></div>
+                        </div>
+                        <div class="hour-stop">
+                           <div class="totalTime"><p>${formattedDuration1}</p></div>
+                           <div class="arrow-icon"><hr><i class="fa-solid fa-plane"></i></div>
+                           <div class="stop"><p>${stops1 ? `${stops1} stop${stops1 > 1 ? 's' : ''} : ${stoppingPlaces1.join(", ")}` : "Non-stop"}</p></div>
+                        </div>
+                        <div class="arrival-time-place">
+                           <div class="arrivalTime"><h2>${formattedArrivalTime1}</h2></div>
+                           <div class="arrivalPlace"><h2>${arrivalCity1}</h2></div>
+                        </div>
+                    </div>
+                </div>`
 
-                const timePlace = document.createElement("div");
-                timePlace.classList.add("departure-time-place");
-
-                const timeOfDeparture = document.createElement("div");
-                timeOfDeparture.classList.add("timeOfDeparture");
-
-                const departureHeading = document.createElement("h2");
-                departureHeading.textContent = `${formattedDepartureTime}`;
-
-                timeOfDeparture.appendChild(departureHeading);
-                timePlace.appendChild(timeOfDeparture);
-
-                const startingPlace = document.createElement("div");
-                startingPlace.classList.add("startingPlace");
-
-                const placeHeader = document.createElement("h2");
-                placeHeader.textContent = `${departureCity}`;
-
-                startingPlace.appendChild(placeHeader);
-                timePlace.appendChild(startingPlace);
-
-                fromTo.appendChild(timePlace);
-
-                const hourStop = document.createElement("div");
-                hourStop.classList.add("hour-stop");
-
-                const totalTime = document.createElement("div");
-                totalTime.classList.add("totalTime");
-
-                const totalTimePara = document.createElement("p");
-                totalTimePara.textContent = `${formattedDuration}`;
-
-                totalTime.appendChild(totalTimePara);
-                hourStop.appendChild(totalTime);
-
-                const arrowIcon = document.createElement("div");
-                arrowIcon.classList.add("arrow-icon");
-
-                const hr = document.createElement("hr");
-
-                const icon = document.createElement("i");
-                icon.classList.add("fa-solid", "fa-plane");
-
-                arrowIcon.appendChild(hr);
-                arrowIcon.appendChild(icon);
-                hourStop.appendChild(arrowIcon);
-
-                const noOfStops = document.createElement("div");
-                noOfStops.classList.add("stop");
-
-
-                const noOfStopsPara = document.createElement("p");
-
-                if (stops > 0) {
-                    noOfStopsPara.textContent = `${stops} stop${stop > 1 ? "s" : ""} : ${stoppingPlaces.join(", ")}`
                 } else {
-                    noOfStopsPara.textContent = "Non-stop"
+                    info = `
+                    <div class="company"><h2>${airCraftName} (${aircraftCode})</h2></div>
+                        <div class="from-to">
+                           <div class="departure-time-place">
+                           <div class="timeOfDeparture"><h2>${formatTime(segments[0].departure.at)}</h2></div>
+                           <div class="startingPlace"><h2>${departureCity}</h2></div>
+                        </div>
+                        <div class="hour-stop">
+                           <div class="totalTime"><p>${duration.slice(2)}</p></div>
+                           <div class="arrow-icon"><hr><i class="fa-solid fa-plane"></i></div>
+                           <div class="stop"><p>${stops ? `${stops} stop${stops > 1 ? 's' : ''} : ${stoppingPlaces.join(", ")}` : "Non-stop"}</p></div>
+                        </div>
+                        <div class="arrival-time-place">
+                           <div class="arrivalTime"><h2>${formatTime(segments.at(-1).arrival.at)}</h2></div>
+                           <div class="arrivalPlace"><h2>${arrivalCity}</h2></div>
+                        </div>
+                    </div>`
+
                 }
 
 
 
-                noOfStops.appendChild(noOfStopsPara);
-                hourStop.appendChild(noOfStops);
-
-                fromTo.appendChild(hourStop);
-
-                const arrivalTimePlace = document.createElement("div");
-                arrivalTimePlace.classList.add("arrival-time-place");
-
-                const arrivalTime = document.createElement("div");
-                arrivalTime.classList.add("arrivalTime");
-
-                const arrivalTimeHeader = document.createElement("h2");
-                arrivalTimeHeader.textContent = `${formattedArrivalTime}`;
-
-                arrivalTime.appendChild(arrivalTimeHeader);
-                arrivalTimePlace.appendChild(arrivalTime);
-
-                const arrivalPlace = document.createElement("div");
-                arrivalPlace.classList.add("arrivalPlace");
-
-                const arrivalPlaceHeader = document.createElement("h2");
-                arrivalPlaceHeader.textContent = `${arrivalCity}`;
-
-                arrivalPlace.appendChild(arrivalPlaceHeader);
-                arrivalTimePlace.appendChild(arrivalPlace);
-
-                fromTo.appendChild(arrivalTimePlace);
-
                 const book = document.createElement("div");
-                book.classList.add("book");
-
+                book.className = "book";
                 const button = document.createElement("button");
-                button.classList.add("bookBtn");
-                button.textContent = `${currency} ${basePriceInRupee} book`;
+                button.className = "bookBtn";
+                button.textContent = `Rs. ${basePriceInRupee} book`;
+                book.appendChild(button);
 
                 const date = document.querySelector("#departure").value;
                 const noOfPerson = document.querySelector("#seats").value;
+                const date1 = document.querySelector("#return").value
 
 
                 button.addEventListener("click", async () => {
@@ -352,18 +343,37 @@ search.addEventListener("click", () => {
                     localStorage.setItem("totalPriceInRupee", JSON.stringify(totalPriceInRupee));
                     localStorage.setItem("noOfPerson", JSON.stringify(noOfPerson));
 
+                    localStorage.setItem("departureCity1", JSON.stringify(departureCity1));
+                    localStorage.setItem("arrivalCity1", JSON.stringify(arrivalCity1));
+                    localStorage.setItem("formattedDepartureTime1", JSON.stringify(formattedDepartureTime1));
+                    localStorage.setItem("formattedArrivalTime1", JSON.stringify(formattedArrivalTime1));
+                    localStorage.setItem("airCraftName1", JSON.stringify(airCraftName1));
+                    localStorage.setItem("duration1", JSON.stringify(duration1));
+                    localStorage.setItem("stops1", JSON.stringify(stops1));
+                    localStorage.setItem("date1", JSON.stringify(date1));
+                    localStorage.setItem("trip", trip);
+
                     setTimeout(() => {
                         window.location.href = "checkout.html"
                     }, 100)
 
                 })
+                if (trip === "round") {
+                    optionsHolder.innerHTML = info;
+                    flightDetails.append(optionsHolder, book);
+                    flights.appendChild(flightDetails);
 
-                book.appendChild(button);
+                } else {
+                    flightDetails.innerHTML = info;
+                    flightDetails.appendChild(book);
+                    flightDetails.style.height = "150px";
+                    flights.appendChild(flightDetails);
 
 
-                flightDetails.append(company, fromTo, book);
+                }
 
-                flights.appendChild(flightDetails);
+
+
 
             });
         } catch (error) {
