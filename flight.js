@@ -192,45 +192,51 @@ search.addEventListener("click", () => {
 
             flights.innerHTML = "";
 
-            flightData.forEach((flight) => {
+           flightData.forEach((flight) => {
                 const flightDetails = document.createElement("div");
                 flightDetails.classList.add("flight-details");
 
                 const segments = flight.itineraries[0].segments;
-                const segments1 = flight.itineraries[1]?.segments;
-
-                const stoppingPlaces = [];
-                segments.slice(0, -1).forEach((seg) => {
-                    stoppingPlaces.push(seg.arrival.iataCode);
-                })
-
-
-
-                const stoppingPlaces1 = segments1 ? segments1.slice(0, -1).map(seg => seg.arrival.iataCode) : [];
-
-
+                const stoppingPlaces = segments.slice(0, -1).map(seg => seg.arrival.iataCode);
 
                 const departureCity = segments[0].departure.iataCode;
                 const arrivalCity = segments[segments.length - 1].arrival.iataCode;
-                const duration = flight.itineraries[0].duration;;
+                const duration = flight.itineraries[0].duration;
                 const stops = segments.length - 1;
                 const aircraftCode = segments[0].aircraft?.code;
                 const carrierCode = segments[0].carrierCode;
                 const airCraftName = dictionaries.carriers?.[carrierCode] || carrierCode;
 
-                const departureCity1 = segments1[0].departure.iataCode;
-                const arrivalCity1 = segments1[segments1.length - 1].arrival.iataCode;
-                const duration1 = flight.itineraries[1].duration;;
-                const stops1 = segments1.length - 1;
-                const aircraftCode1 = segments1[0].aircraft?.code;
-                const carrierCode1 = segments1[0].carrierCode;
-                const airCraftName1 = dictionaries.carriers?.[carrierCode1] || carrierCode1;
+                let segments1 = flight.itineraries[1]?.segments || [];
+
+                let departureCity1 = "";
+                let arrivalCity1 = "";
+                let duration1 = "";
+                let stops1 = 0;
+                let aircraftCode1 = "";
+                let carrierCode1 = "";
+                let airCraftName1 = "";
+                let formattedDepartureTime1 = "";
+                let formattedArrivalTime1 = "";
+                let stoppingPlaces1 = [];
+
+                if (segments1.length > 0) {
+                    departureCity1 = segments1[0].departure.iataCode;
+                    arrivalCity1 = segments1[segments1.length - 1].arrival.iataCode;
+                    duration1 = flight.itineraries[1].duration;
+                    stops1 = segments1.length - 1;
+                    aircraftCode1 = segments1[0].aircraft?.code;
+                    carrierCode1 = segments1[0].carrierCode;
+                    airCraftName1 = dictionaries.carriers?.[carrierCode1] || carrierCode1;
+                    formattedDepartureTime1 = formatTime(segments1[0].departure.at);
+                    formattedArrivalTime1 = formatTime(segments1[segments1.length - 1].arrival.at);
+                    stoppingPlaces1 = segments1.slice(0, -1).map(seg => seg.arrival.iataCode);
+                }
 
                 const basePrice = flight.price.base;
                 const basePriceInRupee = (parseFloat(basePrice * 86)).toFixed(2);
                 const totalPrice = flight.price.grandTotal;
                 const totalPriceInRupee = (parseFloat(totalPrice * 86)).toFixed(2);
-
 
                 function formatTime(dateTime) {
                     if (!dateTime || !dateTime.includes("T")) return "Invalid Time";
@@ -242,21 +248,16 @@ search.addEventListener("click", () => {
                     return `${formattedHour}:${minute} ${ampm}`;
                 }
 
-                const formattedDuration = duration.slice(2);
-                const formattedDuration1 = duration1.slice(2);
-
                 const formattedDepartureTime = formatTime(segments[0].departure.at);
                 const formattedArrivalTime = formatTime(segments[segments.length - 1].arrival.at);
-
-                const formattedDepartureTime1 = formatTime(segments1[0].departure.at);
-                const formattedArrivalTime1 = formatTime(segments1[segments1.length - 1].arrival.at);
+                const formattedDuration = duration.slice(2);
+                const formattedDuration1 = duration1.slice(2);
 
                 const optionsHolder = document.createElement("div");
                 optionsHolder.classList.add("optionsHolder");
 
                 let info = "";
-
-                if (trip === "round") {
+                if (trip === "round" && segments1.length > 0) {
                     info = `
                 <div class="option">
                     <div class="company"><h2>${airCraftName} (${aircraftCode})</h2></div>
