@@ -160,7 +160,8 @@ search.addEventListener("click", () => {
         const flights = document.querySelector(".flights");
         flights.innerHTML = "<p>Loading flights...</p>";
 
-        let url = `http://localhost:5000/api/flights?from=${fromIata}&to=${toIata}&departureDate=${departure}&adults=${count}&tripType=${trip}&nonStop=false&max=250`;
+        let url = `https://aeroleon.onrender.com/api/flights?from=${fromIata}&to=${toIata}&departureDate=${departure}&adults=${count}&tripType=${trip}&nonStop=false&max=250`;
+
         if (trip === "round") {
             url += `&returnDate=${returnBack}`;
         }
