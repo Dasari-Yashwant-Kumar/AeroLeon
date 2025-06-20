@@ -7,8 +7,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const AMADEUS_API_KEY = 'Pq64gF5hOUYbEJzCELdusjQkRDFa7Av7';
-const AMADEUS_API_SECRET = 'BHcfLxaCDbG0kEeM';
+const apiKey = process.env.API_KEY;
+const secret = process.env.API_SECRET;
+
 
 let token = "";
 let tokenExpiry = 0;
@@ -21,8 +22,8 @@ const getAccessToken = async () => {
       "https://test.api.amadeus.com/v1/security/oauth2/token",
       new URLSearchParams({
         grant_type: 'client_credentials',
-        client_id: AMADEUS_API_KEY,
-        client_secret: AMADEUS_API_SECRET,
+        client_id: apiKey,
+        client_secret: secret,
       }),
       {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }

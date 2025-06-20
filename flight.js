@@ -1,3 +1,4 @@
+require('dotenv').config();
 let airportData = {};
 
 const airport = async () => {
