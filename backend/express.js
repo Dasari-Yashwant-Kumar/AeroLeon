@@ -9,8 +9,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const apiKey = process.env.API_KEY;
-const secret = process.env.API_SECRET;
+const apiKey = process.env.AMADEUS_API_KEY;
+const secret = process.env.AMADEUS_API_SECRET;
+
 
 
 let token = "";
