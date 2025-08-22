@@ -161,7 +161,6 @@ search.addEventListener("click", () => {
         flights.innerHTML = "<p>Loading flights...</p>";
 
         let url = `https://aeroleon.onrender.com/api/flights?from=${fromIata}&to=${toIata}&departureDate=${departure}&adults=${count}&tripType=${trip}&nonStop=false&max=250`;
-
         if (trip === "round") {
             url += `&returnDate=${returnBack}`;
         }
