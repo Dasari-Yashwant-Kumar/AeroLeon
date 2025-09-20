@@ -15,16 +15,21 @@ const BookingSection = () => {
 
     const showShimmer = async () => {
         if (departure && (typeOfTrip === "round" ? returnDate : true) && seats) {
+
+             setTimeout(() => {
+                const shimmerSection = document.getElementById('shimmer-section');
+                if (shimmerSection) {
+                    shimmerSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 100);
             setLoading(true);
             setFlight(null);
             try {
-                let url = `http://localhost:5000/api/flights?from=${fromIata}&to=${toIata}&departureDate=${departure}&adults=${seats}&typeOfTrip=${typeOfTrip}`;
+                let url = `https://aeroleon.onrender.com/api/flights?from=${fromIata}&to=${toIata}&departureDate=${departure}&adults=${seats}&typeOfTrip=${typeOfTrip}`;
 
                 if (typeOfTrip?.toLowerCase() === "round" && returnDate) {
                     url += `&returnDate=${returnDate}`;
                 }
-
-                console.log("API URL:", url);
 
                 const response = await fetch(url);
                 const result = await response.json();
@@ -32,10 +37,7 @@ const BookingSection = () => {
                 if (!response.ok) {
                     throw new Error(`API error: ${response.status}`)
                 }
-
-                console.log("Full API Response Object:", result);
-                console.log("Flight Data Array:", result.data);
-                setFlight(result.data || [])
+                setFlight(result || [])
 
             } catch (error) {
                 console.log("Error Fetching Flights:", error.message)
@@ -43,12 +45,7 @@ const BookingSection = () => {
                 setLoading(false);
             }
 
-            setTimeout(() => {
-                const shimmerSection = document.getElementById('shimmer-section');
-                if (shimmerSection) {
-                    shimmerSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
+           
         } else {
             alert("Fill all the Sections");
         }
@@ -92,7 +89,7 @@ const BookingSection = () => {
             </div>
             {(loading || flights) && (
                 <div id="shimmer-section" className="absolute top-[130%] w-full flex justify-center bg-[#CECCC8] h-[100vh]">
-                    {loading ? <ShimmerUI /> : <FlightInfo />}
+                    {loading ? <ShimmerUI /> : <FlightInfo flights = {flights}/>}
                 </div>
             )}
         </div>
