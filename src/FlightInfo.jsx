@@ -53,9 +53,6 @@ export const FlightInfo = ({ flights }) => {
                 const conversion = 83;
                 const amountInINR = Math.round(grandTotal * conversion);
 
-
-
-
                 const returnSegment = flight.itineraries?.[1]?.segments || [];
                 const returnDeparture = returnSegment?.[0]?.departure?.iataCode;
                 const returnArrival = returnSegment[returnSegment.length - 1]?.arrival?.iataCode;
@@ -77,7 +74,7 @@ export const FlightInfo = ({ flights }) => {
                     <div key={index} className="bg-[#CECCC8]">
                         <div className="flex justify-center items-center ">
                             <div className="flex flex-column justify-center items-center bg-[#6D99B5] w-[2400px] pt-[40px] pb-[40px] rounded-[50px] mt-[10rem]  ">
-                                {typeOfTrip === "round" && segments.length > 0 ? (
+                                {typeOfTrip === "round"  ? (
                                     <div key={index} className="flex flex-col justify-evenly items-center" >
                                         <div className="flex justify-evenly items-center bg-[#D9D9D9] w-[2100px] h-[650px] font-bold text-[40px] mt-[2rem] rounded-[120px]">
                                             <div className="flex gap-[20px] justify-center items-center flex-col">
