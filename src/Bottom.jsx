@@ -1,19 +1,19 @@
 const Bottom = () => {
     return (
-          <div className="bottom">
-                <div className="brand-name">
+          <div className="flex justify-between items-center bg-[#6D99B5] py-[50px] px-[120px] min-h-[200px]">
+                <div className="text-[70px]">
                     <h1>AeroLeon</h1>
                 </div>
-                <div className="additional">
-                    <div className="addtional-part-1">
-                        <h3>Help</h3>
-                        <h3>Cookies Policies</h3>
-                        <h3>Privacy Policies</h3>
+                <div className="flex  items-center text-[40px] ">
+                    <div className = "mr-[100px]">
+                        <h3 className = "pt-[20px]">Help</h3>
+                        <h3 className = "pt-[20px]">Cookies Policies</h3>
+                        <h3 className = "pt-[20px]">Privacy Policies</h3>
                     </div>
-                    <div className="addtional-part-2">
-                        <h3>About</h3>
-                        <h3>Term Of Services</h3>
-                        <h3>Privacy Setting</h3>
+                    <div >
+                        <h3 className = "pt-[20px]">About</h3>
+                        <h3 className = "pt-[20px]">Term Of Services</h3>
+                        <h3 className = "pt-[20px]"> Privacy Setting</h3>
                     </div>
                 </div>
             </div>

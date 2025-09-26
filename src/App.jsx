@@ -3,6 +3,7 @@ import Landingpage from './Intro.jsx';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import FlightSearch from "./FlightSearch";
 
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -11,7 +12,6 @@ export default function App() {
       <Route path = "/" element = { <Landingpage />}/>
       <Route path = "/FlightSearch" element = {<FlightSearch />} />
       </Routes>
-   
    </div>
    </BrowserRouter>
   )
