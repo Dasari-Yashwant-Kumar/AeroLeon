@@ -11,10 +11,16 @@ import { FlightInfo } from "./FlightInfo";
 const BookingSection = () => {
     const [loading, setLoading] = useState(false);
     const [flights, setFlight] = useState(null);
-    const { typeOfTrip, departure, returnDate, seats, from, to } = useTrip();
+    const { typeOfTrip, departureDate, returnDate, seats, from, to } = useTrip();
+
+    const formatDateForAPI = (date) => {
+        if (!date) return '';
+        const dateObj = new Date(date);
+        return dateObj.toISOString().split('T')[0];
+    };
 
     const showShimmer = async () => {
-        if (departure && (typeOfTrip === "round" ? returnDate : true) && seats) {
+        if (departureDate && (typeOfTrip === "round" ? returnDate : true) && seats) {
 
              setTimeout(() => {
                 const shimmerSection = document.getElementById('shimmer-section');
@@ -25,10 +31,13 @@ const BookingSection = () => {
             setLoading(true);
             setFlight(null);
             try {
-                let url = `https://aeroleon.onrender.com/api/flights?from=${fromIata}&to=${toIata}&departureDate=${departure}&adults=${seats}&typeOfTrip=${typeOfTrip}`;
+                const formattedDepartureDate = formatDateForAPI(departureDate);
+                const formattedReturnDate = formatDateForAPI(returnDate);
+                
+                let url = `https://aeroleon.onrender.com/api/flights?from=${fromIata}&to=${toIata}&departureDate=${formattedDepartureDate}&adults=${seats}&typeOfTrip=${typeOfTrip}`;
 
                 if (typeOfTrip?.toLowerCase() === "round" && returnDate) {
-                    url += `&returnDate=${returnDate}`;
+                    url += `&returnDate=${formattedReturnDate}`;
                 }
 
                 const response = await fetch(url);
@@ -62,7 +71,7 @@ const BookingSection = () => {
                 <TypeOfTrip />
                 {typeOfTrip === "round" ?
                     <div className="flex justify-evenly items-center ml-[40px] mr-[200px] mt-[30px]">
-                        <div className="relative flex gap-[50px] justify-center items-center">
+                        <div className="relative flex gap-[50px] justify-center items-start">
                             <FromTo />
                             <DepartureReturn />
                             <Seats />
@@ -75,7 +84,7 @@ const BookingSection = () => {
                     </div> :
 
                     <div className="flex justify-evenly items-center ml-[40px] mr-[200px] mt-[30px]">
-                        <div className="flex gap-[100px]">
+                        <div className="flex gap-[100px] items-start">
                             <FromTo />
                             <DepartureReturn />
                             <Seats />

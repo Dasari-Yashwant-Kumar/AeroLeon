@@ -2,10 +2,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlane } from "@fortawesome/free-solid-svg-icons";
 import { useTrip } from "./tripContext";
 import Bottom from "./Bottom";
+import { Link } from "react-router-dom"
 
 
 export const FlightInfo = ({ flights }) => {
-    const { typeOfTrip } = useTrip();
+    const { typeOfTrip, setTypeOfTrip, setSelectedFlight } = useTrip();
+
+    const handleTrip = (trip) => {
+        setTypeOfTrip(trip);
+    }
+
 
     console.log(flights);
 
@@ -25,8 +31,8 @@ export const FlightInfo = ({ flights }) => {
                 const segments = flight.itineraries?.[0]?.segments || [];
                 const noOfStops = segments.length - 1;
                 let layOver = [];
-                const departure = segments?.[0]?.departure?.iataCode|| [];
-                const finalArrival = segments[segments.length - 1] ?.arrival?.iataCode;
+                const departure = segments?.[0]?.departure?.iataCode || [];
+                const finalArrival = segments[segments.length - 1]?.arrival?.iataCode;
                 layOver = segments.slice(0, -1).map(seg => seg.arrival.iataCode);
                 const departureDateTime = segments[0].departure.at;
                 const departureSplit = departureDateTime.split("T")[1];
@@ -57,24 +63,53 @@ export const FlightInfo = ({ flights }) => {
                 const returnDeparture = returnSegment?.[0]?.departure?.iataCode;
                 const returnArrival = returnSegment[returnSegment.length - 1]?.arrival?.iataCode;
                 const returnDuration = flight.itineraries?.[1]?.duration;
-                const finalReturnDuration = returnDuration?.replace ("PT", "").replace("H", "h ").replace("M","m").trim();
+                const finalReturnDuration = returnDuration?.replace("PT", "").replace("H", "h ").replace("M", "m").trim();
                 const returnCarrierCode = returnSegment?.[0]?.operating?.carrierCode;
                 const returnCarrierName = dictionaries?.carriers[returnCarrierCode]
-                const returnLayover = returnSegment.slice(0,-1).map(seg => seg.arrival.iataCode);
-                const returnNoOfStops = returnSegment.length-1;
+                const returnLayover = returnSegment.slice(0, -1).map(seg => seg.arrival.iataCode);
+                const returnNoOfStops = returnSegment.length - 1;
                 const returnDepartureDateTime = returnSegment?.[0]?.departure?.at;
                 const returnDepartureTime = returnDepartureDateTime?.split("T")[1];
-                const finalReturnDepartureTime = returnDepartureTime?.slice(0,-3);
+                const finalReturnDepartureTime = returnDepartureTime?.slice(0, -3);
                 const returnArrivalDateTime = returnSegment[returnSegment.length - 1]?.arrival?.at;
                 const returnArrivalTime = returnArrivalDateTime?.split("T")[1];
                 const finalReturnArrivalTime = returnArrivalTime?.slice(0, -3);
+
+                const handleBook = () => {
+                    setSelectedFlight({
+                        typeOfTrip,
+                        departure,
+                        finalArrival,
+                        departureTime,
+                        arrivalTime,
+                        finalDuration,
+                        carrierName,
+                        noOfStops,
+                        layOver,
+                        basePrice,
+                        taxes,
+                        amountInINR,
+                        returnDeparture,
+                        returnArrival,
+                        finalReturnDuration,
+                        returnCarrierName,
+                        finalReturnDepartureTime,
+                        finalReturnArrivalTime,
+                        returnNoOfStops,
+                        returnLayover,
+                        from,
+                        to
+
+                    })
+                }
+
 
 
                 return (
                     <div key={index} className="bg-[#CECCC8]">
                         <div className="flex justify-center items-center ">
                             <div className="flex flex-column justify-center items-center bg-[#6D99B5] w-[2400px] pt-[40px] pb-[40px] rounded-[50px] mt-[10rem]  ">
-                                {typeOfTrip === "round"  ? (
+                                {typeOfTrip === "round" ? (
                                     <div key={index} className="flex flex-col justify-evenly items-center" >
                                         <div className="flex justify-evenly items-center bg-[#D9D9D9] w-[2100px] h-[650px] font-bold text-[40px] mt-[2rem] rounded-[120px]">
                                             <div className="flex gap-[20px] justify-center items-center flex-col">
@@ -153,9 +188,11 @@ export const FlightInfo = ({ flights }) => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button className="w-[220px] h-[220px]  rounded-tr-[50px] rounded-br-[50px] bg-[#6D99B5] text-[#FFFFFF] cursor-pointer">
-                                                Rs. {amountInINR} Book
-                                            </button>
+                                            <Link to="/CheckOut" onClick={handleBook} >
+                                                <button className="w-[220px] h-[220px]  rounded-tr-[50px] rounded-br-[50px] bg-[#6D99B5] text-[#FFFFFF] cursor-pointer">
+                                                    Rs. {amountInINR} Book
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 ) : (
@@ -199,9 +236,11 @@ export const FlightInfo = ({ flights }) => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button className="w-[220px] h-[220px]  rounded-tr-[50px] rounded-br-[50px] bg-[#6D99B5] text-[#FFFFFF] cursor-pointer">
-                                                    Rs. {amountInINR} Book
-                                                </button>
+                                                <Link to="/CheckOut" onClick={handleBook}>
+                                                    <button className="w-[220px] h-[220px]  rounded-tr-[50px] rounded-br-[50px] bg-[#6D99B5] text-[#FFFFFF] cursor-pointer">
+                                                        Rs. {amountInINR} Book
+                                                    </button>
+                                                </Link>
                                             </div>
                                         </div>
 
@@ -209,17 +248,17 @@ export const FlightInfo = ({ flights }) => {
                                 )}
                             </div>
                         </div>
-                       
+
                     </div>
-                    
+
                 );
-                
+
             })}
-             <div className="bg-[#CECCC8] h-[100px]"></div>
-            <Bottom/>
+            <div className="bg-[#CECCC8] h-[100px]"></div>
+            <Bottom />
         </div>
-         
+
     );
-    
+
 };
 

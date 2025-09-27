@@ -91,13 +91,11 @@ const FromTo = ({}) => {
 
     return (
         <>
-            <div className="flex flex-col">
+            <div className="basic-details">
                 <label htmlFor="from" className="text-[35px]">From</label>
-                <div className="relative flex flex-col">
-                    <div className="city">
-                        <FontAwesomeIcon icon={faPlaneDeparture} className="absolute top-[50%] left-[20px] -translate-y-[50%] text-[#6D99B5] text-[40px]" />
-                        <input type="text" id="from" value={from?.name? `${from.name} (${from.iata})`: from || ""} onChange={handleFromChange} className="w-[300px] h-[80px] text-[25px] rounded-[10px] pl-[90px] border-3 bg-white" />
-                    </div>
+                <div className="relative">
+                    <FontAwesomeIcon icon={faPlaneDeparture} className="absolute top-[50%] left-[20px] -translate-y-[50%] text-[#6D99B5] text-[40px]" />
+                    <input type="text" id="from" value={from?.name? `${from.name} (${from.iata})`: from || ""} onChange={handleFromChange} className="w-[300px] h-[80px] text-[25px] rounded-[10px] pl-[90px] border-3 bg-white" />
                     <div className="suggestions">
 
                         {fromSuggestion.length > 0 && (
@@ -125,11 +123,9 @@ const FromTo = ({}) => {
 
             <div className="basic-details">
                 <label htmlFor="to" className="text-[35px]">To</label>
-                <div className="relative flex flex-col">
-                    <div className="city">
-                        <FontAwesomeIcon icon={faPlaneArrival} className="absolute top-[50%] left-[20px] -translate-y-[50%] text-[#6D99B5] text-[40px]" />
-                        <input type="text" id="to" value={to?.name ? `${to.name} (${to.iata})` :to || ""} onChange={handleToChange} className="w-[300px] h-[80px] text-[25px] rounded-[10px] pl-[90px] border-3 bg-white" />
-                    </div>
+                <div className="relative">
+                    <FontAwesomeIcon icon={faPlaneArrival} className="absolute top-[50%] left-[20px] -translate-y-[50%] text-[#6D99B5] text-[40px]" />
+                    <input type="text" id="to" value={to?.name ? `${to.name} (${to.iata})` :to || ""} onChange={handleToChange} className="w-[300px] h-[80px] text-[25px] rounded-[10px] pl-[90px] border-3 bg-white" />
                     <div className="suggestions">
                         {toSuggestion.length > 0 && (
                             <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[90px] left-0 w-[500px] text-[25px] z-10 max-h-45 overflow-y-auto">
