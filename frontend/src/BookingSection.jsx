@@ -65,33 +65,33 @@ const BookingSection = () => {
 
     return (
         <div className="flex justify-center items-center relative">
-            <img className="relative w-[2400px] h-[1050px] rounded-[100px]" src={plane2} alt="Plane" />
+            <img className="w-full max-w-[150rem] h-[65.625rem] rounded-[6.25rem]" src={plane2} alt="Plane" />
             <h1 className="absolute top-[15%] right-[45%] text-[100px]">Hey guys! Where are you <br />Flying to?</h1>
-            <div className="absolute top-[90%] flex flex-col w-[2100px] h-[350px] bg-[#F0EFE7] rounded-[100px]">
+            <div className="absolute top-[90%] flex flex-col w-full max-w-[131.25rem] h-[21.875rem] md:h-[23 rem] bg-[#F0EFE7] rounded-[6.25rem] mx-auto">
                 <TypeOfTrip />
                 {typeOfTrip === "round" ?
-                    <div className="flex justify-evenly items-center ml-[40px] mr-[200px] mt-[30px]">
-                        <div className="relative flex gap-[50px] justify-center items-start">
+                    <div className="flex justify-evenly items-center ml-2 mr-8 mt-2 md:ml-4 md:mr-16 md:mt-4">
+                        <div className="relative flex flex-col md:flex-row gap-4 md:gap-12 justify-center items-start">
                             <FromTo />
                             <DepartureReturn />
                             <Seats />
                         </div>
 
                         <div className="search">
-                            <button onClick={showShimmer} className="absolute top-[58%] right-[100px] w-[250px] h-[80px] text-white
-                        text-[35px] rounded-[10px] border-3 bg-[#6D99B5] text-center">Search</button>
+                            <button onClick={showShimmer} className="absolute top-[54%] right-4 md:right-24 w-40 md:w-[15.625rem] h-16 md:h-[5rem] text-white text-lg 
+                            md:text-[2.1875rem] rounded-lg bg-[#6D99B5] text-center">Search</button>
                         </div>
                     </div> :
 
-                    <div className="flex justify-evenly items-center ml-[40px] mr-[200px] mt-[30px]">
-                        <div className="flex gap-[100px] items-start">
+                    <div className="flex justify-evenly items-center ml-[5%] mr-[10%] mt-[0.8%]">
+                        <div className="flex gap-[6.25rem] items-start">
                             <FromTo />
                             <DepartureReturn />
                             <Seats />
                         </div>
                         <div className="search">
-                            <button onClick={showShimmer} className="absolute top-[58%] right-[200px] w-[250px] h-[80px] text-white
-                        text-[35px] rounded-[10px] border-3 bg-[#6D99B5] text-center">Search</button>
+                            <button onClick={showShimmer} className="absolute top-[54%] right-[12.5rem] w-[15.625rem] h-[5rem] text-white text-[2.1875rem] 
+                            rounded-[0.625rem] border-3 bg-[#6D99B5] text-center">Search</button>
                         </div>
                     </div>
                 }
