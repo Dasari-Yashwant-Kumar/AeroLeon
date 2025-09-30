@@ -7,17 +7,20 @@
       "config": {
         "distDir": "dist"
       }
+    },
+    {
+      "src": "backend/backend.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "/backend/backend.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "/frontend/dist/$1"
     }
-  ],
-  "functions": {
-    "backend/backend.js": {
-      "runtime": "nodejs22.x"
-    }
-  }
+  ]
 }
