@@ -6,44 +6,37 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Landingpage = () => {
     return (
-        <div className="bg-[#262D2D] font-sans p-0 m-0">
-            {/* Container */}
-            <div className="relative flex flex-col lg:flex-row items-center lg:items-start justify-center min-h-screen overflow-hidden px-4 lg:px-16 2xl:px-32">
+        <div className="p-0 m-0 bg-[#262D2D] font-sans">
+            <div className = "relative flex justify-center items-center  min-h-screen overflow-y-hidden">
+            <img className="p-[25px] w-full max-w-[1500px] h-auto rounded-[55px] " src={plane1} alt="plane" />
 
-                {/* Image */}
-                <img
-                    src={plane1}
-                    alt="plane"
-                    className="w-full max-w-[350px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] 2xl:max-w-[1200px] h-auto rounded-[2rem] md:rounded-[3rem] lg:rounded-[3.75rem] mb-8 lg:mb-0 lg:mr-16"
-                />
+            <div className=" absolute lg:top-[25%] lg:left-[10%] 2xl:left-[15%] ">
 
-                {/* Text content */}
-                <div className="flex flex-col items-center lg:items-start text-center lg:text-left text-white">
-                    
-                    {/* Heading */}
-                    <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-sora mb-6 lg:mb-8">
-                        AeroLeon
-                    </h1>
+                <h1 className="text-[#262D2D] absolute top-[-1rem] left-[50%] -translate-x-[50%] 
+                text-[2rem] md:top-[-1rem] md:text-[4rem] lg:text-[5rem] lg:static lg:translate-x-0 lg:text-left xl:static xl:translate-x-0 xl:text-left font-sora ">AeroLeon</h1>
 
-                    {/* Subheading */}
-                    <h2 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-sora mb-4">
-                        Explore the World
-                    </h2>
+                <div className="flex flex-col items-center justify-center text-center mt-[5rem] gap-[25rem]
+                 md:mt-[5rem] lg:mt-[5rem] lg:flex  lg:justify-start lg:items-start lg:gap-[5rem] text-[#FFFFFF]">
 
-                    {/* Paragraph */}
-                    <p className="text-sm md:text-base lg:text-lg xl:text-xl max-w-lg md:max-w-xl lg:max-w-2xl mb-6">
-                        Take off to new destinations with AeroLeon. Book flights easily and start your next adventure without hassle. The world is waiting—let’s explore it together!
-                    </p>
+                    <div className="lg:flex  lg:flex-col lg:justify-start lg:items-start lg:gap-[1rem]">
 
-                    {/* Button / Link */}
+                        <h1 className="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] lg:px-0 xl:text-[1.6rem] font-sora">Explore the World</h1>
+
+                        <p className="px-[3rem] text-center text-sm pt-[1rem] text-white md:text-[1.5rem] 
+                        max-w-lg md:max-w-2xl lg:pt-0 lg:px-0 lg:text-left lg:text-[0.5rem] xl:text-[1rem] font-sora">Take off to new destinations with AeroLeon. Book
+                            flights easily and start your next adventure without hassle.
+                            The world is waiting—let’s explore it together!
+                        </p>
+                    </div>
                     <Link to="/FlightSearch">
-                        <div className="flex items-center justify-center lg:justify-start gap-3 md:gap-4 text-lg md:text-2xl xl:text-2xl cursor-pointer font-sora">
+                        <div className="text-[0.5rem] gap-[1rem] flex items-center justify-center text-center pt-[2rem] md:text-[1rem]
+                         font-sora cursor-pointer" id="adventure">
                             <p>Start My Adventure</p>
-                            <FontAwesomeIcon icon={faArrowRight} className="w-6 h-6 md:w-8 md:h-8" />
+                            <FontAwesomeIcon icon={faArrowRight} className='lg:mt-2.5 lg:!w-[2.5rem] lg:!h-[2.5rem]' />
                         </div>
                     </Link>
-
                 </div>
+            </div>
             </div>
         </div>
     );
