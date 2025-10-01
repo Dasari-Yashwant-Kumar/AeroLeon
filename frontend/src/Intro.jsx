@@ -8,22 +8,22 @@ const Landingpage = () => {
     console.log(window.innerHeight)
     return (
         
-        <div className="p-[15%] bg-[#262D2D] flex justify-center items-center h-screen overflow-y-hidden font-sans">
+        <div className="p-[10%] bg-[#262D2D] flex justify-center items-center h-screen overflow-y-hidden font-sans">
             
             <div className="relative">
                 <img className=" w-[67vw] h-[80vh] max-w-[1300px] max-h-[700px] rounded-[50px]" src={plane1} alt="plane" />
 
                 <div className="">
 
-                    <h1 className="absolute top-[3rem] left-[50%] -translate-x-[50%] text-[#262D2D]">AeroLeon</h1>
+                    <h1 className="absolute top-[2rem] left-[50%] -translate-x-[50%] text-[#262D2D]">AeroLeon</h1>
 
                     <div className="text-center text-[#FFFFFF]">
 
                         <div className="text-[0.8rem]">
 
-                            <h1 className="absolute top-[5rem] left-[50%] -translate-x-[50%] font-sora">Explore the World</h1>
+                            <h1 className="absolute top-[4rem] left-[50%] -translate-x-[50%] font-sora">Explore the World</h1>
 
-                            <p className="absolute top-[8rem] left-[50%] -translate-x-[50%] font-sora">Take off to new destinations with AeroLeon. Book
+                            <p className="absolute top-[6rem] left-[50%] -translate-x-[50%] font-sora">Take off to new destinations with AeroLeon. Book
                                 flights easily and start your next adventure without hassle.
                                 The world is waiting—let’s explore it together!
                             </p>
