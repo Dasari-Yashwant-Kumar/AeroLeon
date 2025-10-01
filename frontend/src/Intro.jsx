@@ -1,11 +1,16 @@
+import './index.css';
+import plane1 from './assets/plane1.jpg';
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
+const Landingpage = () => {
+    return (
+       
 <div className="p-8 lg:p-16 2xl:p-32 relative flex flex-col lg:flex-row items-center lg:items-start justify-center min-h-screen bg-[#262D2D] overflow-hidden">
     
     {/* Image */}
-    <img 
-        src={plane1} 
-        alt="plane" 
-        className="w-full max-w-[1500px] h-auto rounded-[55px] mb-8 lg:mb-0 lg:mr-16" 
-    />
+   <img className="w-full max-w-[1500px] h-auto rounded-[55px] mb-8 lg:mb-0 lg:mr-16"  src={plane1} alt="plane" />
 
     {/* Text Content */}
     <div className="flex flex-col items-center lg:items-start text-center lg:text-left text-white">
@@ -23,3 +28,9 @@
         </Link>
     </div>
 </div>
+
+    );
+}
+
+export default Landingpage;
+
