@@ -6,9 +6,9 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Landingpage = () => {
     return (
-        <div className="p-0 m-0 bg-[#262D2D] font-sans">
-            <div className = "relative flex justify-center items-center  min-h-screen overflow-y-hidden">
-            <img className="p-[25%] w-full max-w-[1500px] h-auto rounded-[55px] " src={plane1} alt="plane" />
+        <div className="p-0 m-0 bg-[#262D2D] overflow-y-hidden font-sans">
+            <div className = "relative flex justify-center items-center  min-h-screen">
+            <img className="p-[15%] w-full max-w-[1500px] h-auto rounded-[55px] " src={plane1} alt="plane" />
 
             <div className=" absolute lg:top-[25%] lg:left-[10%] 2xl:left-[15%] ">
 
