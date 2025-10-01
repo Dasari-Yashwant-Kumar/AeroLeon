@@ -10,7 +10,7 @@ export default function App() {
   return (
     <TripProvider>
     <BrowserRouter>
-    <div className = "bg-[#262D2D] h-screen">
+    <div>
       <Routes>
       <Route path = "/" element = { <Landingpage />}/>
       <Route path = "/FlightSearch" element = {<FlightSearch />} />
