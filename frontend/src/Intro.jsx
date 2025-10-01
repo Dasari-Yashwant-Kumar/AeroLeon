@@ -9,7 +9,7 @@ const Landingpage = () => {
         <div className="p-0 m-0 bg-[#262D2D] font-sans">
             <div className = "relative flex justify-center items-center  min-h-screen overflow-y-hidden">
             <img className="h-[35rem] w-[21rem] rounded-[2rem] md:h-[55rem] md:w-[41rem] md:rounded-[3rem] 
-            lg:w-[70rem] xl:w-[80rem] 2xl:w-[130rem] lg:h-[70rem] lg:rounded-[3.75rem] " src={plane1} alt="plane" />
+            lg:w-[70rem] xl:w-[80rem] 2xl:w-[90rem] lg:h-[70rem] lg:rounded-[3.75rem] " src={plane1} alt="plane" />
 
             <div className=" absolute lg:top-[25%] lg:left-[10%]">
 
