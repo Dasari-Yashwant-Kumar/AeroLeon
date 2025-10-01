@@ -9,9 +9,9 @@ const Landingpage = () => {
         <div className="p-0 m-0 bg-[#262D2D] font-sans">
             <div className = "relative flex justify-center items-center  min-h-screen overflow-y-hidden">
             <img className="h-[35rem] w-[21rem] rounded-[2rem] md:h-[55rem] md:w-[41rem] md:rounded-[3rem] 
-            lg:w-[70rem] xl:w-[80rem] 2xl:w-[90rem] lg:h-[70rem] lg:rounded-[3.75rem] " src={plane1} alt="plane" />
+            lg:w-[70rem] xl:w-[80rem] 2xl:w-[130rem] lg:h-[70rem] lg:rounded-[3.75rem] " src={plane1} alt="plane" />
 
-            <div className=" absolute lg:top-[25%] lg:left-[10%]">
+            <div className=" absolute lg:top-[25%] lg:left-[10%] 2xl:left-[15%] ">
 
                 <h1 className="text-[#262D2D] absolute top-[-1rem] left-[50%] -translate-x-[50%] 
                 text-[2rem] md:top-[-1rem] md:text-[4rem] lg:text-[5rem] lg:static lg:translate-x-0 lg:text-left xl:static xl:translate-x-0 xl:text-left font-sora ">AeroLeon</h1>
