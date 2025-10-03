@@ -106,7 +106,7 @@ export const FlightInfo = ({ flights }) => {
 
 
                 return (
-                    <div key={index} className="bg-[#CECCC8]">
+                    <div key={index}>
                         <div className="flex justify-center items-center ">
                             <div className="flex flex-column justify-center items-center bg-[#6D99B5] w-[90vw] max-w-[2400px] pt-[40px] pb-[40px] rounded-[5rem] mt-[2rem]">
                                 {typeOfTrip === "round" ? (

@@ -64,10 +64,10 @@ const BookingSection = () => {
 
 
     return (
-        <div className="flex justify-center items-center bg-[#CECCC8] min-h-full relative">
-            <img className="w-[80vw] h-[80vh] max-w-[150rem] max-h-[65.625rem] rounded-[5rem]" src={plane2} alt="Plane" />
+        <div className="flex flex-col justify-center items-center">
+            <img className="relative w-[80vw] h-[80vh] max-w-[150rem] max-h-[65.625rem] rounded-[5rem]" src={plane2} alt="Plane" />
             <h1 className="absolute top-[15%] left-[15%] text-[1.5rem] sm:text-[2rem] md:text-[3rem]">Hey guys! Where are you <br />Flying to?</h1>
-            <div className="absolute top-[88%] flex flex-col w-[60vw] h-[20vh]  w-[70vw] md:h-[16vh] max-w-[131.25rem] max-h-[21.875rem] bg-[#F0EFE7] rounded-[2rem] md:rounded-[2.5rem]">
+            <div className="absolute top-[88%] flex flex-col h-[20vh]  w-[70vw] md:h-[16vh] max-w-[131.25rem] max-h-[21.875rem] bg-[#F0EFE7] rounded-[2rem] md:rounded-[2.5rem]">
                 <TypeOfTrip />
                 {typeOfTrip === "round" ?
                     <div className="flex flex-col justify-center items-center gap-[0.2rem] md:justify-evenly  md:items-center md:ml-2">
@@ -108,7 +108,7 @@ const BookingSection = () => {
                 }
             </div>
             {(loading || flights) && (
-                <div id="shimmer-section" className="absolute top-[130%] w-full flex justify-center bg-[#CECCC8] h-[100vh]">
+                <div id="shimmer-section" className="w-full flex justify-center py-[5rem]">
                     {loading ? <ShimmerUI /> : <FlightInfo flights={flights} />}
                 </div>
             )}

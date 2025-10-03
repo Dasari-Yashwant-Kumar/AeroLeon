@@ -3,10 +3,10 @@ import { useTrip } from "./tripContext";
 export const ShimmerUI = () => {
     const { typeOfTrip } = useTrip();
     return (
-        <div>
+        <div className= "bg-[#CECCC8]">
             <div className="flights">
                 <div className="flex justify-center items-center">
-                    <div className="flex flex-column justify-center items-center bg-[#6D99B5] w-[90vw] max-w-[2400px] pt-[40px] pb-[40px] rounded-[5rem] mt-[10rem] opacity-60">
+                    <div className="flex flex-column justify-center items-center bg-[#6D99B5] w-[90vw] max-w-[2400px] pt-[40px] pb-[40px] rounded-[5rem] opacity-60">
                         {typeOfTrip === "round" ? (
                             <div className="animate-pulse flex flex-col justify-evenly items-center " >
                                 <div className="flex justify-evenly items-center bg-[#D9D9D9] w-[80vw] h-[35vh] max-w-[2100px] max-h-[650px] font-bold text-[40px] mt-[2rem] rounded-[120px] ">

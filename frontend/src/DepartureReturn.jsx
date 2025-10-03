@@ -45,7 +45,7 @@ const DepartureReturn = () => {
             value={departureDate ?  formatDate(departureDate) :""}
             readOnly
             onClick={() => setShowDeparturePicker(!showDeparturePicker)}
-            className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:placeholder-transparent md:w-[10vw] md:rounded-[10px] pl-[0.5rem] border-2 bg-white"
+            className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] text-center max-h-[5rem] text-[0.8rem] md:placeholder-transparent md:w-[10vw] md:rounded-[10px] border-2 bg-white"
             placeholder="Departure date"
           />
           {showDeparturePicker && (
@@ -74,7 +74,7 @@ const DepartureReturn = () => {
               value={returnDate ? formatDate(returnDate): ""}
               readOnly
               onClick={() => setShowReturnPicker(!showReturnPicker)}
-              className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:w-[10vw] md:placeholder-transparent md:rounded-[10px] pl-[0.5rem] border-2 bg-white"
+              className="w-[25vw] h-[4vh] rounded-[5px] text-center max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:w-[10vw] md:placeholder-transparent md:rounded-[10px] pl-[0.5rem] border-2 bg-white"
               placeholder="Return date"
             />
             {showReturnPicker && (
