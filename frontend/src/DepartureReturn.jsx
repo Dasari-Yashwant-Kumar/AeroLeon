@@ -28,28 +28,28 @@ const DepartureReturn = () => {
 
   const formatDate = (date) => {
     if (!date) return "Select Date";
-    return date.toLocaleDateString('en-GB', { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-GB', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
     });
   };
 
   return (
-    <>
-      <div className="basic-details">
-        <label htmlFor="departure" className="text-[1rem]">Departure</label>
+    <div className="flex gap-[1rem]">
+      <div >
+        <label htmlFor="departure" className="hidden md:block text-[1rem]">Departure</label>
         <div className="relative" ref={departureRef}>
           <input
             type="text"
-            value={formatDate(departureDate)}
+            value={departureDate ?  formatDate(departureDate) :""}
             readOnly
             onClick={() => setShowDeparturePicker(!showDeparturePicker)}
-            className="w-[8vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] rounded-[10px] pl-[1rem] border-2 bg-white" 
-            placeholder="Select departure date"
+            className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:placeholder-transparent md:w-[10vw] md:rounded-[10px] pl-[0.5rem] border-2 bg-white"
+            placeholder="Departure date"
           />
           {showDeparturePicker && (
-            <div className="absolute bottom-full left-0 z-50 mb-1 bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden" style={{ width: '250px', height: '250px' }}>
+            <div className="absolute bottom-full left-0 z-50 mb-1 bg-white border border-gray-300 rounded-md shadow-md overflow-hidden" style={{ width: '250px', height: '250px' }}>
               <div className="p-1" style={{ transform: 'scale(0.8)', transformOrigin: 'top left', width: '250px', height: '250px' }}>
                 <DayPicker
                   mode="single"
@@ -67,18 +67,18 @@ const DepartureReturn = () => {
       </div>
       {typeOfTrip === "round" && (
         <div className="basic-details" id="return-section">
-          <label htmlFor="return" className="text-[1rem]">Return</label>
+          <label htmlFor="return" className="hidden md:block text-[1rem]">Return</label>
           <div className="relative" ref={returnRef}>
             <input
               type="text"
-              value={formatDate(returnDate)}
+              value={returnDate ? formatDate(returnDate): ""}
               readOnly
               onClick={() => setShowReturnPicker(!showReturnPicker)}
-              className="w-[8vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] rounded-[10px] pl-[1rem] border-2 bg-white" 
-              placeholder="Select return date"
+              className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:w-[10vw] md:placeholder-transparent md:rounded-[10px] pl-[0.5rem] border-2 bg-white"
+              placeholder="Return date"
             />
             {showReturnPicker && (
-              <div className="absolute bottom-full left-0 z-50 mb-2 bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden" style={{ width: '250px', height: '250px' }}>
+              <div className="absolute bottom-full left-0 z-50 mb-2 bg-white border border-gray-300 rounded-md shadow-md overflow-hidden" style={{ width: '250px', height: '250px' }}>
                 <div className="p-1" style={{ transform: 'scale(0.8)', transformOrigin: 'top left', width: '250px', height: '250px' }}>
                   <DayPicker
                     mode="single"
@@ -95,7 +95,7 @@ const DepartureReturn = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

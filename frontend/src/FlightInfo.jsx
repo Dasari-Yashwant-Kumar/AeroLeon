@@ -17,7 +17,7 @@ export const FlightInfo = ({ flights }) => {
 
     if (!flights || flights.data.length === 0) {
         return (
-            <div className="flex justify-center  items-center bg-[#6D99B5] font-bold text-[1rem] ~w-[2100px] h-[350px] mt-[2rem] rounded-[12rem]">
+            <div className="flex justify-center  items-center bg-[#6D99B5] font-bold text-[0.5rem] sm:text-[1rem] ~w-[2100px] h-[350px] mt-[2rem] rounded-[12rem]">
                 No Flights Found
             </div>
         );
@@ -108,16 +108,16 @@ export const FlightInfo = ({ flights }) => {
                 return (
                     <div key={index} className="bg-[#CECCC8]">
                         <div className="flex justify-center items-center ">
-                            <div className="flex flex-column justify-center items-center bg-[#6D99B5] w-[90vw] max-w-[2400px] pt-[40px] pb-[40px] rounded-[5rem] mt-[10rem]">
+                            <div className="flex flex-column justify-center items-center bg-[#6D99B5] w-[90vw] max-w-[2400px] pt-[40px] pb-[40px] rounded-[5rem] mt-[2rem]">
                                 {typeOfTrip === "round" ? (
                                     <div key={index} className="flex flex-col justify-evenly items-center" >
-                                        <div className="flex justify-evenly items-center bg-[#D9D9D9] w-[80vw] h-[35vh] max-w-[2100px] max-h-[650px] font-bold text-[1rem] rounded-[5rem] ">
+                                        <div className="flex justify-evenly items-center bg-[#D9D9D9] w-[80vw] h-[30vh] sm:h-[35vh] max-w-[2100px] max-h-[650px] font-bold text-[0.5rem] sm:text-[1rem] rounded-[5rem] ">
                                             <div className="flex gap-[15px] justify-center items-center flex-col">
                                                 <div className="flex flex-row gap-[25px] items-center ">
-                                                    <div className="flex justify-center items-center text-center bg-[#FFFFFF] w-[15vw] h-[12vh] max-w-[300px] max-h-[220px] rounded-tl-[2rem] rounded-bl-[2rem]">
+                                                    <div className="flex justify-center items-center text-center bg-[#FFFFFF] w-[15vw] h-[8vh] sm:h-[12vh] max-w-[300px] max-h-[220px] rounded-tl-[2rem] rounded-bl-[2rem]">
                                                         <h2>{carrierName} ({carrierCode})</h2>
                                                     </div>
-                                                    <div className="flex justify-evenly items-center bg-[#FFFFFF] w-[40vw] h-[12vh] max-w-[1300px] max-h-[220px]">
+                                                    <div className="flex justify-evenly items-center bg-[#FFFFFF] w-[40vw] h-[8vh] sm:h-[12vh] max-w-[1300px] max-h-[220px]">
                                                         <div className="flex flex-col justify-center items-center">
                                                             <div className="timeOfDeparture">
                                                                 <h2>{departureTime}</h2>
@@ -132,7 +132,7 @@ export const FlightInfo = ({ flights }) => {
                                                                 <p>{finalDuration}</p>
                                                             </div>
                                                             <div className="flex items-center justify-between w-full">
-                                                                <hr className="border-3 border-[#6D99B5]  w-[15vw] max-w-[350px] text-[#6D99B5]" />
+                                                                <hr className="border-1 border-[#6D99B5]  w-[15vw] max-w-[350px] text-[#6D99B5] sm:border-3" />
                                                                 <FontAwesomeIcon icon={faPlane} className="text-[#6D99B5]" />
                                                             </div>
                                                             <div className="stop">
@@ -150,11 +150,11 @@ export const FlightInfo = ({ flights }) => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                               <div className="flex flex-row gap-[25px] items-center ">
-                                                    <div className="flex justify-center items-center text-center bg-[#FFFFFF] w-[15vw] h-[12vh] max-w-[300px] max-h-[220px] rounded-tl-[2rem] rounded-bl-[2rem]">
+                                                <div className="flex flex-row gap-[25px] items-center ">
+                                                    <div className="flex justify-center items-center text-center bg-[#FFFFFF] w-[15vw] h-[8vh] sm:h-[12vh] max-w-[300px] max-h-[220px] rounded-tl-[2rem] rounded-bl-[2rem]">
                                                         <h2>{returnCarrierName} ({returnCarrierCode})</h2>
                                                     </div>
-                                                     <div className="flex justify-evenly items-center bg-[#FFFFFF] w-[40vw] h-[12vh] max-w-[1300px] max-h-[220px]">
+                                                    <div className="flex justify-evenly items-center bg-[#FFFFFF] w-[40vw] h-[8vh] sm:h-[12vh] max-w-[1300px] max-h-[220px]">
                                                         <div className="flex flex-col justify-center items-center">
                                                             <div className="timeOfDeparture">
                                                                 <h2>{finalReturnDepartureTime}</h2>
@@ -169,7 +169,7 @@ export const FlightInfo = ({ flights }) => {
                                                                 <p>{finalReturnDuration}</p>
                                                             </div>
                                                             <div className="flex items-center justify-between w-full">
-                                                                <hr className="border-3 border-[#6D99B5]  w-[15vw] max-w-[350px] text-[#6D99B5]" />
+                                                                <hr className="border-1 border-[#6D99B5]  w-[15vw] max-w-[350px] text-[#6D99B5] sm:border-3" />
                                                                 <FontAwesomeIcon icon={faPlane} className="text-[#6D99B5]" />
                                                             </div>
                                                             <div className="stop">
@@ -189,7 +189,7 @@ export const FlightInfo = ({ flights }) => {
                                                 </div>
                                             </div>
                                             <Link to="/CheckOut" onClick={handleBook} >
-                                                <button className="w-[10vw] h-[15vh] max-w-[220px] max-h-[220px]  rounded-tr-[2rem] rounded-br-[2rem] bg-[#6D99B5] text-[#FFFFFF] cursor-pointer">
+                                                <button className="w-[10vw] h-[10vh] sm:h-[15vh] max-w-[220px] max-h-[220px]  rounded-tr-[2rem] rounded-br-[2rem] bg-[#6D99B5] text-[#FFFFFF] cursor-pointer">
                                                     Rs. {amountInINR} Book
                                                 </button>
                                             </Link>
@@ -197,12 +197,12 @@ export const FlightInfo = ({ flights }) => {
                                     </div>
                                 ) : (
                                     <div key={flight.id} className="flex flex-col gap-[50px] justify-center items-center bg-[#6D99B5]">
-                                        <div className="flex justify-evenly items-center bg-[#D9D9D9] w-[80vw] h-[25vh] max-w-[2100px] max-h-[650px] font-bold text-[1rem] rounded-[5rem] ">
-                                            <div className="flex flex-row gap-[25px] items-center mt-[1rem] font-bold text-[1rem] ">
-                                                <div className="flex justify-center items-center text-center bg-[#FFFFFF] w-[15vw] h-[12vh] max-w-[300px] max-h-[220px] rounded-tl-[2rem] rounded-bl-[2rem]">
+                                        <div className="flex justify-evenly items-center bg-[#D9D9D9] w-[80vw] h-[20vh] sm:h-[25vh] max-w-[2100px] max-h-[650px] font-bold text-[0.5rem] sm:text-[1rem] rounded-[5rem] ">
+                                            <div className="flex flex-row gap-[25px] items-center mt-[1rem]">
+                                                <div className="flex justify-center items-center text-center bg-[#FFFFFF] w-[15vw] h-[8vh] sm:h-[12vh] max-w-[300px] max-h-[220px] rounded-tl-[2rem] rounded-bl-[2rem]">
                                                     <h2>{carrierName} ({carrierCode})</h2>
                                                 </div>
-                                                <div className="flex justify-evenly items-center bg-[#FFFFFF] w-[40vw] h-[12vh] max-w-[1300px] max-h-[220px]">
+                                                <div className="flex justify-evenly items-center bg-[#FFFFFF] w-[40vw] h-[8vh] sm:h-[12vh] max-w-[1300px] max-h-[220px]">
                                                     <div className="flex flex-col justify-center items-center">
                                                         <div className="timeOfDeparture">
                                                             <h2>{departureTime}</h2>
@@ -217,7 +217,7 @@ export const FlightInfo = ({ flights }) => {
                                                             <p>{finalDuration}</p>
                                                         </div>
                                                         <div className="flex items-center justify-between w-full">
-                                                            <hr className="border-3 border-[#6D99B5]  w-[15vw] max-w-[350px] text-[#6D99B5]" />
+                                                            <hr className="border-1 border-[#6D99B5]  w-[15vw] max-w-[350px] text-[#6D99B5] sm:border-3" />
                                                             <FontAwesomeIcon icon={faPlane} className="text-[#6D99B5]" />
                                                         </div>
 
@@ -237,7 +237,7 @@ export const FlightInfo = ({ flights }) => {
                                                     </div>
                                                 </div>
                                                 <Link to="/CheckOut" onClick={handleBook}>
-                                                    <button className="w-[10vw] h-[12vh] max-w-[220px] max-h-[220px]  rounded-tr-[2rem] rounded-br-[2rem] bg-[#6D99B5] text-[#FFFFFF] cursor-pointer">
+                                                    <button className="w-[10vw] h-[8vh] sm:h-[12vh] max-w-[220px] max-h-[220px]  rounded-tr-[2rem] rounded-br-[2rem] bg-[#6D99B5] text-[#FFFFFF] cursor-pointer">
                                                         Rs. {amountInINR} Book
                                                     </button>
                                                 </Link>

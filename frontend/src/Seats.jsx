@@ -9,10 +9,10 @@ const {seats, setSeats} = useTrip();
     return (
 
         <div className="basic-details">
-            <label htmlFor="seats" className="text-[1rem]">Seats</label>
+            <label htmlFor="seats" className="hidden md:block text-[1rem]">Seats</label>
             <div className="relative">
                 <FontAwesomeIcon icon={faUser} className="absolute top-[50%] left-[10px] -translate-y-[50%] text-[#6D99B5] text-[1rem]" />
-                <input type="number" value = {seats} onChange = {(e)=> setSeats(e.target.value)} className="w-[5vw] h-[4vh] max-w-[10 rem] max-h-[5rem] text-[0.8rem] rounded-[10px] pl-[2rem] pr-[0.5rem] border-2 bg-white" />
+                <input type="number" placeholder = "Seats" value = {seats} onChange = {(e)=> setSeats(e.target.value)} className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:placeholder-transparent md:w-[6vw] md:rounded-[10px] pl-[2rem] border-2 bg-white" />
             </div>
         </div>
     )

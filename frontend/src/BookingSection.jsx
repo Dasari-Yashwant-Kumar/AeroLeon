@@ -22,7 +22,7 @@ const BookingSection = () => {
     const showShimmer = async () => {
         if (departureDate && (typeOfTrip === "round" ? returnDate : true) && seats) {
 
-             setTimeout(() => {
+            setTimeout(() => {
                 const shimmerSection = document.getElementById('shimmer-section');
                 if (shimmerSection) {
                     shimmerSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -33,7 +33,7 @@ const BookingSection = () => {
             try {
                 const formattedDepartureDate = formatDateForAPI(departureDate);
                 const formattedReturnDate = formatDateForAPI(returnDate);
-                
+
                 let url = `https://aeroleon.onrender.com/api/flights?from=${fromIata}&to=${toIata}&departureDate=${formattedDepartureDate}&adults=${seats}&typeOfTrip=${typeOfTrip}`;
 
                 if (typeOfTrip?.toLowerCase() === "round" && returnDate) {
@@ -54,7 +54,7 @@ const BookingSection = () => {
                 setLoading(false);
             }
 
-           
+
         } else {
             alert("Fill all the Sections");
         }
@@ -64,40 +64,52 @@ const BookingSection = () => {
 
 
     return (
-        <div className="flex justify-center items-center relative">
+        <div className="flex justify-center items-center bg-[#CECCC8] min-h-full relative">
             <img className="w-[80vw] h-[80vh] max-w-[150rem] max-h-[65.625rem] rounded-[5rem]" src={plane2} alt="Plane" />
-            <h1 className="absolute top-[15%] left-[15%] text-[3rem]">Hey guys! Where are you <br />Flying to?</h1>
-            <div className="absolute top-[88%] flex flex-col w-[60vw] h-[16vh] max-w-[131.25rem] max-h-[21.875rem] bg-[#F0EFE7] rounded-[3rem]">
+            <h1 className="absolute top-[15%] left-[15%] text-[1.5rem] sm:text-[2rem] md:text-[3rem]">Hey guys! Where are you <br />Flying to?</h1>
+            <div className="absolute top-[88%] flex flex-col w-[60vw] h-[20vh]  w-[70vw] md:h-[16vh] max-w-[131.25rem] max-h-[21.875rem] bg-[#F0EFE7] rounded-[2rem] md:rounded-[2.5rem]">
                 <TypeOfTrip />
                 {typeOfTrip === "round" ?
-                    <div className="flex justify-evenly items-center ml-2 mr-8">
-                        <div className="relative flex gap-[1.5rem] justify-center items-start">
+                    <div className="flex flex-col justify-center items-center gap-[0.2rem] md:justify-evenly  md:items-center md:ml-2">
+                        <div className="relative flex flex-col gap-[0.2rem] md:flex-row md:gap-[1.5rem] md:justify-center md:items-center">
                             <FromTo />
                             <DepartureReturn />
-                            <Seats />
+                            <div className="flex flex-row gap-[1rem]">
+                                <Seats />
+                                <div className="md:flex md:flex-col">
+                                    <label htmlFor="search" className="hidden md:block text-[1rem]">Search</label>
+                                    <button id="search" onClick={showShimmer} className="w-[25vw] h-[4vh] md:w-[6vw] max-w-[18rem] max-h-[5rem] text-[0.8rem] border-2 rounded-md bg-[#6D99B5] text-white text-center">
+                                        GO
+                                    </button>
+                                </div>
+                            </div>
+
                         </div>
 
-                        <div className="search">
-                            <button onClick={showShimmer} className="absolute top-[56%] right-4 w-[6vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] border-2 rounded-lg bg-[#6D99B5] text-center">Search</button>
-                        </div>
+
                     </div> :
 
-                    <div className="flex justify-evenly items-center ml-[5%] mr-[10%]">
-                        <div className="flex gap-[2rem] items-start">
+                    <div className="flex flex-col justify-evenly items-center gap-[0.2rem] md:flex-row md:gap-[1rem] md:justify-center md:items-center md:ml-[5%]">
+                        <div className="relative flex flex-col gap-[0.2rem] md:flex-row md:gap-[1rem] md:justify-center md:items-center">
                             <FromTo />
-                            <DepartureReturn />
-                            <Seats />
+                            <div className="flex flex-row gap-[1rem] md:justify-evenly">
+                                <DepartureReturn />
+                                <Seats />
+                            </div>
                         </div>
-                        <div className="search">
-                            <button onClick={showShimmer} className="absolute top-[56%] right-[5rem] w-[6vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] text-white
-                            rounded-[0.625rem] border-3 bg-[#6D99B5] border-2 text-center">Search</button>
+                        <div className="md:flex md:flex-col">
+                            <label htmlFor="search" className="hidden md:block text-[1rem]">Search</label>
+                            <button id="search" onClick={showShimmer} className=" w-[25vw] h-[4vh] md:w-[6vw] max-w-[18rem] max-h-[5rem] text-[0.8rem] border-2 rounded-md bg-[#6D99B5] text-white text-center">
+                                GO
+                            </button>
                         </div>
+
                     </div>
                 }
             </div>
             {(loading || flights) && (
                 <div id="shimmer-section" className="absolute top-[130%] w-full flex justify-center bg-[#CECCC8] h-[100vh]">
-                    {loading ? <ShimmerUI /> : <FlightInfo flights = {flights}/>}
+                    {loading ? <ShimmerUI /> : <FlightInfo flights={flights} />}
                 </div>
             )}
         </div>
