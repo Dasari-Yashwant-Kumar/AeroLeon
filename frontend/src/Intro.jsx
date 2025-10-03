@@ -8,31 +8,29 @@ const Landingpage = () => {
     console.log(window.innerHeight)
     return (
         
-        <div className="p-[10%] bg-[#262D2D] flex justify-center items-center h-screen overflow-y-hidden font-sans">
+        <div className="p-[10%] bg-[#262D2D] flex justify-center items-center h-screen overflow-y-hidden">
             
             <div className="relative">
-                <img className=" w-[67vw] h-[80vh] max-w-[1700px] max-h-[900px] rounded-[50px]" src={plane1} alt="plane" />
+                <img className=" w-[67vw] h-[80vh] max-w-[2500px] max-h-[1500px] rounded-[50px]" src={plane1} alt="plane" />
 
-                <div className="">
+              <div className="absolute top-[2rem] flex flex-col justify-center items-center text-center px-4 gap-[2rem] 
+    text-[0.8rem] md:top-[5rem] md:items-start md:text-left md:gap-[4rem] md:pr-[18rem] lg:pr-[19.2rem] xl:top-[10rem] xl:pr-[60rem] xl:pl-[3rem] xl:gap-[6rem]">
 
-                    <h1 className="absolute top-[2rem] left-[50%] -translate-x-[50%] text-[1.6rem] text-[#262D2D]">AeroLeon</h1>
+                    <h1 className="text-[1.6rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] xl:lg:text-[7rem] text-[#262D2D]">AeroLeon</h1>
 
-                    <div className="absolute top-[5rem] flex flex-col items-center text-center px-4 gap-[15rem] text-[0.8rem] text-[#FFFFFF]">
-
+                    <div className="md:flex md:flex-col md:items-start md:text-left md:gap-[5rem] text-[#FFFFFF]">
                         <div>
-
-                            <h1 className="pb-4 font-sora">Explore the World</h1>
-
-                            <p className="font-sora">Take off to new destinations with AeroLeon. Book
+                            <h1 className="pb-4 sm:text-[1.5rem] md:text-[2rem] xl:text-[5rem] xl:mb-[3rem]">Explore the World</h1>
+                            <p className="sm:text-[1rem] md:text-[1rem] xl:text-[2rem]">Take off to new destinations with AeroLeon. Book
                                 flights easily and start your next adventure without hassle.
                                 The world is waiting—let’s explore it together!
                             </p>
                         </div>
                         <Link to="/FlightSearch">
-                            <div className="gap-2 flex items-center justify-center text-center pt-[2rem] md:text-[1rem]
-                         font-sora cursor-pointer" id="adventure">
+                            <div className="gap-2 flex items-center justify-center text-center text-[1rem] pt-[18rem] md:pt-[0] sm:text-[1rem] md:text-[1.2rem]
+                         xl:text-[2.5rem] xl:pt-[5rem] cursor-pointer" id="adventure">
                                 <p>Start My Adventure</p>
-                                <FontAwesomeIcon icon={faArrowRight} className='lg:mt-2.5 lg:!w-[2.5rem] lg:!h-[2.5rem]' />
+                                <FontAwesomeIcon icon={faArrowRight} className="sm:text-[1rem] md:text-[1.2rem] xl:text-[2.5rem]" />
                             </div>
                         </Link>
                     </div>
