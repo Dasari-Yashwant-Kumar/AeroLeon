@@ -78,7 +78,7 @@ const BookingSection = () => {
                         </div>
 
                         <div className="search">
-                            <button onClick={showShimmer} className="absolute top-[54%] right-4 w-[8vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] border-2 rounded-lg bg-[#6D99B5] text-center">Search</button>
+                            <button onClick={showShimmer} className="absolute top-[56%] right-4 w-[6vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] border-2 rounded-lg bg-[#6D99B5] text-center">Search</button>
                         </div>
                     </div> :
 
@@ -89,7 +89,7 @@ const BookingSection = () => {
                             <Seats />
                         </div>
                         <div className="search">
-                            <button onClick={showShimmer} className="absolute top-[54%] right-[12.5rem] w-[8vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] text-white
+                            <button onClick={showShimmer} className="absolute top-[56%] right-[5rem] w-[6vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] text-white
                             rounded-[0.625rem] border-3 bg-[#6D99B5] border-2 text-center">Search</button>
                         </div>
                     </div>

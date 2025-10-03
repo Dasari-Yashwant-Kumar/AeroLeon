@@ -99,7 +99,7 @@ const FromTo = ({}) => {
                     <div className="suggestions">
 
                         {fromSuggestion.length > 0 && (
-                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[90px] left-0 w-[500px] text-[25px] z-10 max-h-45 overflow-y-auto">
+                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[40px] left-0 w-[20vw] max-w-[500px] text-[0.8rem] z-10 max-h-45 overflow-y-auto">
                                 {fromSuggestion.map((airport, index) => (
                                     <li
                                         key={index}
@@ -128,7 +128,7 @@ const FromTo = ({}) => {
                     <input type="text" id="to" value={to?.name ? `${to.name} (${to.iata})` :to || ""} onChange={handleToChange} className="w-[8vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] rounded-[10px] pl-[2rem] border-2 bg-white" />
                     <div className="suggestions">
                         {toSuggestion.length > 0 && (
-                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[90px] left-0 w-[500px] text-[25px] z-10 max-h-45 overflow-y-auto">
+                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[40px] left-0 w-[20vw] max-w-[500px] text-[0.8rem] z-10 max-h-45 overflow-y-auto">
                                 {toSuggestion.map((airport, index) => (
                                     <li
                                         key={index}
