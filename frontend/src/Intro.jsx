@@ -14,7 +14,7 @@ const Landingpage = () => {
                 <img className=" w-[80vw] h-[80vh] max-w-[2500px] max-h-[1500px] rounded-[50px]" src={plane1} alt="plane" />
 
               <div className="absolute top-[2rem] flex flex-col justify-center items-center text-center px-4 gap-[2rem] 
-    text-[0.8rem] md:top-[5rem] md:items-start md:text-left md:gap-[2.7rem] md:pr-[19rem] lg:pl-[2rem] lg:pr-[28rem] xl:pr-[30rem]">
+    text-[0.8rem] md:top-[5rem] md:items-start md:text-left md:gap-[2.7rem] md:pr-[20rem] lg:pl-[2rem] lg:pr-[29rem] xl:pr-[33rem]">
 
                     <h1 className="text-[1.6rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem]">AeroLeon</h1>
 
