@@ -38,19 +38,19 @@ const DepartureReturn = () => {
   return (
     <>
       <div className="basic-details">
-        <label htmlFor="departure" className="text-[35px]">Departure</label>
+        <label htmlFor="departure" className="text-[1rem]">Departure</label>
         <div className="relative" ref={departureRef}>
           <input
             type="text"
             value={formatDate(departureDate)}
             readOnly
             onClick={() => setShowDeparturePicker(!showDeparturePicker)}
-            className="w-[300px] h-[80px] text-[25px] rounded-[10px] px-[40px] border-3 bg-white" 
+            className="w-[8vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] rounded-[10px] px-[1rem] border-2 bg-white" 
             placeholder="Select departure date"
           />
           {showDeparturePicker && (
             <div className="absolute bottom-full left-0 z-50 mb-2 bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden" style={{ width: '450px', height: '450px' }}>
-              <div className="p-4" style={{ transform: 'scale(1.3)', transformOrigin: 'top left', width: '350px', height: '350px' }}>
+              <div className="p-1" style={{ transform: 'scale(1.3)', transformOrigin: 'top left', width: '350px', height: '350px' }}>
                 <DayPicker
                   mode="single"
                   selected={departureDate}
@@ -58,7 +58,7 @@ const DepartureReturn = () => {
                     setDeparture(date);
                     setShowDeparturePicker(false);
                   }}
-                  className="text-[18px]"
+                  className="text-[1rem]"
                 />
               </div>
             </div>
@@ -67,19 +67,19 @@ const DepartureReturn = () => {
       </div>
       {typeOfTrip === "round" && (
         <div className="basic-details" id="return-section">
-          <label htmlFor="return" className="text-[35px]">Return</label>
+          <label htmlFor="return" className="text-[1rem]">Return</label>
           <div className="relative" ref={returnRef}>
             <input
               type="text"
               value={formatDate(returnDate)}
               readOnly
               onClick={() => setShowReturnPicker(!showReturnPicker)}
-              className="w-[300px] h-[80px] text-[25px] rounded-[10px] px-[40px] border-3 bg-white" 
+              className="w-[8vw] h-[4vh] max-w-[18 rem] max-h-[5rem] text-[0.8rem] rounded-[10px] px-[1rem] border-2 bg-white" 
               placeholder="Select return date"
             />
             {showReturnPicker && (
               <div className="absolute bottom-full left-0 z-50 mb-2 bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden" style={{ width: '450px', height: '450px' }}>
-                <div className="p-4" style={{ transform: 'scale(1.3)', transformOrigin: 'top left', width: '350px', height: '350px' }}>
+                <div className="p-1" style={{ transform: 'scale(1.3)', transformOrigin: 'top left', width: '350px', height: '350px' }}>
                   <DayPicker
                     mode="single"
                     selected={returnDate}
@@ -87,7 +87,7 @@ const DepartureReturn = () => {
                       setReturnDate(date);
                       setShowReturnPicker(false);
                     }}
-                    className="text-[18px]"
+                    className="text-[1rem]"
                   />
                 </div>
               </div>
