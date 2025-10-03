@@ -65,7 +65,7 @@ const BookingSection = () => {
 
     return (
         <div className="flex justify-center items-center relative">
-            <img className="w-full max-w-[150rem] h-[65.625rem] rounded-[6.25rem]" src={plane2} alt="Plane" />
+            <img className="w-[80vw] h-[80vh] max-w-[150rem] max-h-[65.625rem] rounded-[6.25rem]" src={plane2} alt="Plane" />
             <h1 className="absolute top-[15%] right-[45%] text-[100px]">Hey guys! Where are you <br />Flying to?</h1>
             <div className="absolute top-[90%] flex flex-col w-full max-w-[131.25rem] h-[21.875rem] md:h-[23 rem] bg-[#F0EFE7] rounded-[6.25rem] mx-auto">
                 <TypeOfTrip />
