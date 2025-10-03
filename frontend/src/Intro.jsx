@@ -11,7 +11,7 @@ const Landingpage = () => {
         <div className="p-[10%] bg-[#262D2D] flex justify-center items-center h-screen overflow-y-hidden font-sans">
             
             <div className="relative">
-                <img className=" w-[67vw] h-[80vh] max-w-[1300px] max-h-[700px] rounded-[50px]" src={plane1} alt="plane" />
+                <img className=" w-[67vw] h-[80vh] max-w-[1500px] max-h-[800px] rounded-[50px]" src={plane1} alt="plane" />
 
                 <div className="">
 
