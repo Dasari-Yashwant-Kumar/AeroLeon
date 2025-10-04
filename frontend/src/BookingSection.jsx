@@ -108,7 +108,7 @@ const BookingSection = () => {
                 }
             </div>
             {(loading || flights) && (
-                <div id="shimmer-section" className="w-full flex justify-center py-[5rem]">
+                <div id="shimmer-section" className="w-full flex justify-center pt-[5rem] 2xl:pt-[20rem]">
                     {loading ? <ShimmerUI /> : <FlightInfo flights={flights} />}
                 </div>
             )}

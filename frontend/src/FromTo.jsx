@@ -99,7 +99,7 @@ const FromTo = ({}) => {
                     <div className="suggestions">
 
                         {fromSuggestion.length > 0 && (
-                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[40px] left-0 w-[20vw] max-w-[500px] text-[0.8rem] z-10 max-h-45 overflow-y-auto 2xl:text-[2rem]">
+                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[40px] left-0 w-[20vw] max-w-[500px] text-[0.8rem] z-10 max-h-45 overflow-y-auto 2xl:text-[2rem] 2xl:top-[80px]">
                                 {fromSuggestion.map((airport, index) => (
                                     <li
                                         key={index}
@@ -128,7 +128,7 @@ const FromTo = ({}) => {
                     <input type="text" id="to" placeholder = "To" value={to?.name ? `${to.name} (${to.iata})` :to || ""} onChange={handleToChange} className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:placeholder-transparent md:w-[10vw] md:rounded-[10px] pl-[2rem] border-2 bg-white 2xl:text-[2rem] 2xl:pl-[3.5rem]" />
                     <div className="suggestions">
                         {toSuggestion.length > 0 && (
-                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[40px] left-0 w-[20vw] max-w-[500px] text-[0.8rem] z-10 max-h-45 overflow-y-auto 2xl:text-[2rem]">
+                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[40px] left-0 w-[20vw] max-w-[500px] text-[0.8rem] z-10 max-h-45 overflow-y-auto 2xl:text-[2rem] 2xl:top-[80px]">
                                 {toSuggestion.map((airport, index) => (
                                     <li
                                         key={index}

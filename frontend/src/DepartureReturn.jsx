@@ -49,8 +49,8 @@ const DepartureReturn = () => {
             placeholder="Departure date"
           />
           {showDeparturePicker && (
-            <div className="absolute bottom-full left-0 z-50 mb-1 bg-white border border-gray-300 rounded-md shadow-md overflow-hidden" style={{ width: '250px', height: '250px' }}>
-              <div className="p-1" style={{ transform: 'scale(0.8)', transformOrigin: 'top left', width: '250px', height: '250px' }}>
+            <div className="absolute bottom-full left-0 z-50 mb-1 bg-white border border-gray-300 rounded-md shadow-md overflow-hidden w-[250px] h-[250px] 2xl:w-[450px] 2xl:h-[450px]">
+              <div className="p-1 scale-[0.8] origin-top-left w-[250px] h-[250px] 2xl:scale-[1.3] 2xl:w-[350px] 2xl:h-[350px]">
                 <DayPicker
                   mode="single"
                   selected={departureDate}
@@ -58,7 +58,7 @@ const DepartureReturn = () => {
                     setDeparture(date);
                     setShowDeparturePicker(false);
                   }}
-                  className="text-[0.8rem]"
+                  className="text-[0.8rem] 2xl:text-[1rem]"
                 />
               </div>
             </div>
@@ -78,8 +78,8 @@ const DepartureReturn = () => {
               placeholder="Return date"
             />
             {showReturnPicker && (
-              <div className="absolute bottom-full left-0 z-50 mb-2 bg-white border border-gray-300 rounded-md shadow-md overflow-hidden" style={{ width: '250px', height: '250px' }}>
-                <div className="p-1" style={{ transform: 'scale(0.8)', transformOrigin: 'top left', width: '250px', height: '250px' }}>
+              <div className="absolute bottom-full left-0 z-50 mb-1 bg-white border border-gray-300 rounded-md shadow-md overflow-hidden w-[250px] h-[250px] 2xl:w-[450px] 2xl:h-[450px]">
+                <div className="p-1 scale-[0.8] origin-top-left w-[250px] h-[250px] 2xl:scale-[1.3] 2xl:w-[350px] 2xl:h-[350px]">
                   <DayPicker
                     mode="single"
                     selected={returnDate}
@@ -87,7 +87,7 @@ const DepartureReturn = () => {
                       setReturnDate(date);
                       setShowReturnPicker(false);
                     }}
-                    className="text-[0.8rem]"
+                    className="text-[0.8rem] 2xl:text-[1rem]"
                   />
                 </div>
               </div>
