@@ -49,8 +49,8 @@ export const CheckOut = () => {
         <div className=" bg-[#6D99B5] min-h-screen pb-[3rem] px-[3rem]">
             <div className="flex flex-col pt-[2rem] gap-[2rem] items-center md:flex-row md:justify-evenly md:items-start md:pt-[2rem]" >
                 <div
-                    className={`flex flex-col items-center ${selectedTypeOfTrip === "round" ? "sm:flex-col gap-[2rem]" : "sm:flex-row"
-                        } md:flex-col gap-[7rem]`}
+                    className={`flex flex-col gap-[2rem] items-center ${selectedTypeOfTrip === "round" ? "sm:flex-col md:flex-col gap-[2rem]" : "sm:flex-row md:flex-col gap-[7rem]"
+                        } `}
                 >
                     <div className="basic-flight">
                         {selectedTypeOfTrip === "round" ? (
