@@ -90,16 +90,16 @@ const FromTo = ({}) => {
     }
 
     return (
-        <div className="flex gap-[1rem] xl:gap-[4rem]">
+        <div className="flex gap-[1rem] 2xl:gap-[4rem]">
             <div>
-                <label htmlFor="from" className="hidden md:block text-[1rem] xl:text-[2rem]">From</label>
+                <label htmlFor="from" className="hidden md:block text-[1rem] 2xl:text-[2rem]">From</label>
                 <div className="relative">
-                    <FontAwesomeIcon icon={faPlaneDeparture} className="absolute top-[50%] left-[10px] -translate-y-[50%] text-[#6D99B5] text-[1rem] xl:text-[2rem]" />
-                    <input type="text" id="from"placeholder = "From" value={from?.name? `${from.name} (${from.iata})`: from || ""} onChange={handleFromChange} className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] max-h-[5rem] text-[0.8rem] pl-[2rem] border-2 bg-white md:placeholder-transparent md:w-[10vw] md:rounded-[10px] xl:text-[2rem] xl:pl-[3.5rem]" />
+                    <FontAwesomeIcon icon={faPlaneDeparture} className="absolute top-[50%] left-[10px] -translate-y-[50%] text-[#6D99B5] text-[1rem] 2xl:text-[2rem]" />
+                    <input type="text" id="from"placeholder = "From" value={from?.name? `${from.name} (${from.iata})`: from || ""} onChange={handleFromChange} className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] max-h-[5rem] text-[0.8rem] pl-[2rem] border-2 bg-white md:placeholder-transparent md:w-[10vw] md:rounded-[10px] 2xl:text-[2rem] 2xl:pl-[3.5rem]" />
                     <div className="suggestions">
 
                         {fromSuggestion.length > 0 && (
-                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[40px] left-0 w-[20vw] max-w-[500px] text-[0.8rem] z-10 max-h-45 overflow-y-auto xl:text-[2rem]">
+                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[40px] left-0 w-[20vw] max-w-[500px] text-[0.8rem] z-10 max-h-45 overflow-y-auto 2xl:text-[2rem]">
                                 {fromSuggestion.map((airport, index) => (
                                     <li
                                         key={index}
@@ -122,13 +122,13 @@ const FromTo = ({}) => {
             </div>
 
             <div className="basic-details">
-                <label htmlFor="to" className="hidden md:block text-[1rem] xl:text-[2rem]">To</label>
+                <label htmlFor="to" className="hidden md:block text-[1rem] 2xl:text-[2rem]">To</label>
                 <div className="relative">
-                    <FontAwesomeIcon icon={faPlaneArrival} className="absolute top-[50%] left-[10px] -translate-y-[50%] text-[#6D99B5] text-[1rem] xl:text-[2rem]" />
-                    <input type="text" id="to" placeholder = "To" value={to?.name ? `${to.name} (${to.iata})` :to || ""} onChange={handleToChange} className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:placeholder-transparent md:w-[10vw] md:rounded-[10px] pl-[2rem] border-2 bg-white xl:text-[2rem] xl:pl-[3.5rem]" />
+                    <FontAwesomeIcon icon={faPlaneArrival} className="absolute top-[50%] left-[10px] -translate-y-[50%] text-[#6D99B5] text-[1rem] 2xl:text-[2rem]" />
+                    <input type="text" id="to" placeholder = "To" value={to?.name ? `${to.name} (${to.iata})` :to || ""} onChange={handleToChange} className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:placeholder-transparent md:w-[10vw] md:rounded-[10px] pl-[2rem] border-2 bg-white 2xl:text-[2rem] 2xl:pl-[3.5rem]" />
                     <div className="suggestions">
                         {toSuggestion.length > 0 && (
-                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[40px] left-0 w-[20vw] max-w-[500px] text-[0.8rem] z-10 max-h-45 overflow-y-auto xl:text-[2rem]">
+                            <ul ref = {wrapperRef} className="bg-white border rounded shadow absolute top-[40px] left-0 w-[20vw] max-w-[500px] text-[0.8rem] z-10 max-h-45 overflow-y-auto 2xl:text-[2rem]">
                                 {toSuggestion.map((airport, index) => (
                                     <li
                                         key={index}
