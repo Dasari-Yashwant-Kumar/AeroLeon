@@ -7,7 +7,7 @@ import BookingSection from "./BookingSection";
 
 const FlightSearch = () => {
     return (
-        <div className= "bg-[#CECCC8] min-h-screen">
+        <div className= "p-0 m-0 bg-[#CECCC8] min-h-screen">
             <FlightSearchHeader />
             <BookingSection />
         </div>

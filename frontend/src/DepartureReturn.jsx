@@ -36,16 +36,16 @@ const DepartureReturn = () => {
   };
 
   return (
-    <div className="flex gap-[1rem]">
+    <div className="flex gap-[1rem] xl:gap-[4rem]">
       <div >
-        <label htmlFor="departure" className="hidden md:block text-[1rem]">Departure</label>
+        <label htmlFor="departure" className="hidden md:block text-[1rem] xl:text-[2rem]">Departure</label>
         <div className="relative" ref={departureRef}>
           <input
             type="text"
             value={departureDate ?  formatDate(departureDate) :""}
             readOnly
             onClick={() => setShowDeparturePicker(!showDeparturePicker)}
-            className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] text-center max-h-[5rem] text-[0.8rem] md:placeholder-transparent md:w-[10vw] md:rounded-[10px] border-2 bg-white"
+            className="w-[25vw] h-[4vh] rounded-[5px] max-w-[18 rem] text-center max-h-[5rem] text-[0.8rem] md:placeholder-transparent md:w-[10vw] md:rounded-[10px] border-2 bg-white  xl:text-[2rem]"
             placeholder="Departure date"
           />
           {showDeparturePicker && (
@@ -67,14 +67,14 @@ const DepartureReturn = () => {
       </div>
       {typeOfTrip === "round" && (
         <div className="basic-details" id="return-section">
-          <label htmlFor="return" className="hidden md:block text-[1rem]">Return</label>
+          <label htmlFor="return" className="hidden md:block text-[1rem] xl:text-[2rem]">Return</label>
           <div className="relative" ref={returnRef}>
             <input
               type="text"
               value={returnDate ? formatDate(returnDate): ""}
               readOnly
               onClick={() => setShowReturnPicker(!showReturnPicker)}
-              className="w-[25vw] h-[4vh] rounded-[5px] text-center max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:w-[10vw] md:placeholder-transparent md:rounded-[10px] pl-[0.5rem] border-2 bg-white"
+              className="w-[25vw] h-[4vh] rounded-[5px] text-center max-w-[18 rem] max-h-[5rem] text-[0.8rem] md:w-[10vw] md:placeholder-transparent md:rounded-[10px] pl-[0.5rem] border-2 bg-white  xl:text-[2rem]"
               placeholder="Return date"
             />
             {showReturnPicker && (

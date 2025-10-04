@@ -65,20 +65,20 @@ const BookingSection = () => {
 
     return (
         <div className="flex flex-col justify-center items-center">
-            <img className="relative w-[80vw] h-[80vh] max-w-[150rem] max-h-[65.625rem] rounded-[5rem]" src={plane2} alt="Plane" />
-            <h1 className="absolute top-[15%] left-[15%] text-[1.5rem] sm:text-[2rem] md:text-[3rem]">Hey guys! Where are you <br />Flying to?</h1>
-            <div className="absolute top-[85%] flex flex-col h-[20vh]  w-[70vw] md:h-[16vh] max-w-[131.25rem] max-h-[21.875rem] bg-[#F0EFE7] rounded-[2rem] md:rounded-[2.5rem]">
+            <img className="relative w-[80vw] h-[70vh] max-w-[150rem] max-h-[65.625rem] rounded-[5rem] xl:h-[80vh] xl:rounded-[10rem]" src={plane2} alt="Plane" />
+            <h1 className="absolute top-[20%] text-center left-1/2 -translate-x-1/2  text-[1.2rem] sm:text-[1.5rem] md:text-[1.8rem] lg:top-[25%] lg:left-[40%] lg:text-[2.2rem] xl:text-[5rem]">Hey guys! Where are you Flying to?</h1>
+            <div className="absolute top-[73%] flex flex-col h-[20vh] w-[70vw] md:h-[16vh] max-w-[131.25rem] max-h-[21.875rem] bg-[#F0EFE7] rounded-[2rem] md:rounded-[2.5rem] xl:top-[68%] xl:rounded-[5rem] xl:h-[25vh]">
                 <TypeOfTrip />
                 {typeOfTrip === "round" ?
-                    <div className="flex flex-col justify-center items-center gap-[0.2rem] md:justify-evenly  md:items-center md:ml-2">
-                        <div className="relative flex flex-col gap-[0.2rem] md:flex-row md:gap-[1.5rem] md:justify-center md:items-center">
+                    <div className="flex flex-col justify-center items-center gap-[0.2rem] md:justify-evenly  md:items-center">
+                        <div className="relative flex flex-col gap-[0.2rem] md:flex-row md:gap-[1.5rem] md:justify-center md:items-center xl:gap-[4rem]">
                             <FromTo />
                             <DepartureReturn />
-                            <div className="flex flex-row gap-[1rem]">
+                            <div className="flex flex-row gap-[1rem] xl:gap-[4rem]">
                                 <Seats />
                                 <div className="md:flex md:flex-col">
-                                    <label htmlFor="search" className="hidden md:block text-[1rem]">Search</label>
-                                    <button id="search" onClick={showShimmer} className="w-[25vw] h-[4vh] md:w-[6vw] max-w-[18rem] max-h-[5rem] text-[0.8rem] border-2 rounded-md bg-[#6D99B5] text-white text-center">
+                                    <label htmlFor="search" className="hidden md:block text-[1rem] xl:text-[2rem] ">Search</label>
+                                    <button id="search" onClick={showShimmer} className="w-[25vw] h-[4vh] md:w-[6vw] max-w-[18rem] max-h-[5rem] text-[0.8rem] border-2 rounded-md bg-[#6D99B5] text-white text-center xl:text-[2rem]">
                                         GO
                                     </button>
                                 </div>
@@ -89,17 +89,17 @@ const BookingSection = () => {
 
                     </div> :
 
-                    <div className="flex flex-col justify-evenly items-center gap-[0.2rem] md:flex-row md:gap-[1rem] md:justify-center md:items-center md:ml-[5%]">
-                        <div className="relative flex flex-col gap-[0.2rem] md:flex-row md:gap-[1rem] md:justify-center md:items-center">
+                    <div className="flex flex-col justify-evenly items-center gap-[0.2rem] md:flex-row md:gap-[1rem] md:justify-center md:items-center xl:gap-[4rem] xl:ml-[0]">
+                        <div className="relative flex flex-col gap-[0.2rem] md:flex-row md:gap-[1rem] md:justify-center md:items-center xl:gap-[4rem]">
                             <FromTo />
-                            <div className="flex flex-row gap-[1rem] md:justify-evenly">
+                            <div className="flex flex-row gap-[1rem] md:justify-evenly xl:gap-[4rem]">
                                 <DepartureReturn />
                                 <Seats />
                             </div>
                         </div>
                         <div className="md:flex md:flex-col">
-                            <label htmlFor="search" className="hidden md:block text-[1rem]">Search</label>
-                            <button id="search" onClick={showShimmer} className=" w-[25vw] h-[4vh] md:w-[6vw] max-w-[18rem] max-h-[5rem] text-[0.8rem] border-2 rounded-md bg-[#6D99B5] text-white text-center">
+                            <label htmlFor="search" className="hidden md:block text-[1rem] xl:text-[2rem]" >Search</label>
+                            <button id="search" onClick={showShimmer} className=" w-[25vw] h-[4vh] md:w-[6vw] max-w-[18rem] max-h-[5rem] text-[0.8rem] border-2 rounded-md bg-[#6D99B5] text-white text-center xl:text-[2rem]">
                                 GO
                             </button>
                         </div>
