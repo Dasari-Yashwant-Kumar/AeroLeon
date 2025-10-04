@@ -4,7 +4,7 @@ import { faCircleDot, faCircleCheck, faCircleXmark, faPlane } from '@fortawesome
 
 
 export const CheckOut = () => {
-    const { selectedFlight, typeOfTrip,departureDate, returnDate, seats } = useTrip();
+    const { selectedFlight, typeOfTrip, departureDate, returnDate, seats } = useTrip();
 
     if (!selectedFlight) return <p>Loading flight details...</p>;
 
@@ -31,28 +31,31 @@ export const CheckOut = () => {
         returnLayover
     } = selectedFlight;
 
-    const departureDateobj = new Date (departureDate);
-    const option1 = {day: "2-digit", month: "short", year: "numeric"};
-    const dayOption1 = {weekday: "short"}
+    const departureDateobj = new Date(departureDate);
+    const option1 = { day: "2-digit", month: "short", year: "numeric" };
+    const dayOption1 = { weekday: "short" }
 
     const finalDepDate = departureDateobj.toLocaleDateString("en-GB", option1);
-    const finalDepDay = departureDateobj.toLocaleDateString("en-GB",dayOption1);
+    const finalDepDay = departureDateobj.toLocaleDateString("en-GB", dayOption1);
 
-     const returnDateobj = new Date (returnDate);
-    const option2 = {day: "2-digit", month: "short", year: "numeric"};
-    const dayOption2 = {weekday: "short"};
+    const returnDateobj = new Date(returnDate);
+    const option2 = { day: "2-digit", month: "short", year: "numeric" };
+    const dayOption2 = { weekday: "short" };
 
     const finalReturnDate = returnDateobj.toLocaleDateString("en-GB", option2);
-    const finalReturnDay = returnDateobj.toLocaleDateString("en-GB",dayOption2);
+    const finalReturnDay = returnDateobj.toLocaleDateString("en-GB", dayOption2);
 
     return (
-        <div className=" bg-[#6D99B5] h-[100vh]  ">
-            <div className="flex justify-evenly items-center pt-[80px]" >
-                <div className="flex flex-col gap-[100px] items-center">
+        <div className=" bg-[#6D99B5] min-h-screen pb-[3rem] px-[3rem]">
+            <div className="flex flex-col pt-[2rem] gap-[2rem] items-center md:flex-row md:justify-evenly md:items-start md:pt-[2rem]" >
+                <div
+                    className={`flex flex-col gap-[2rem] items-center 2xl:gap-[6rem] ${selectedTypeOfTrip === "round" ? "sm:flex-col" : "sm:flex-row"
+                        } md:flex-col`}
+                >
                     <div className="basic-flight">
                         {selectedTypeOfTrip === "round" ? (
-                            <div className="bg-[#F0EFE7]  w-[1200px] h-[750px] text-[40px] rounded-[80px] pt-[20px] mt-[40px]">
-                                <div className="flex flex-col gap-[30px] justify-evenly pt-[15px] pb-[40px] pl-[40px]">
+                            <div className="bg-[#F0EFE7] flex flex-col justify-center items-start pl-[1rem] gap-[2rem] w-[80vw] h-[50vh] max-w-[1200px] max-h-[750px] rounded-[40px] md:w-[40vw] 2xl:text-[40px] 2xl:rounded-[80px] 2xl:mt-[40px]">
+                                <div className="flex flex-col gap-[1rem] 2xl:gap-[2rem] 2xl:pl-[40px]">
                                     <div className="font-bold">
                                         <h2>Flight Details: Round Trip</h2>
                                     </div>
@@ -61,15 +64,15 @@ export const CheckOut = () => {
                                         <p className="durationstops">{departureTime} - {arrivalTime} ({finalDuration}, {noOfStops != null ? (noOfStops === 0 ? "Non-stop" : `${noOfStops} stop${noOfStops > 1 ? "s" : ""} ${layOver?.join(", ")}`) : null})</p>
                                     </div>
 
-                                    <div className="flex justify-start gap-[50px] items-center">
+                                    <div className="flex justify-start gap-[0.5rem] 2xl:gap-[3rem] items-center">
                                         <p className="craftName"> {carrierName} </p>
-                                        <FontAwesomeIcon className="text-[20px]" icon={faCircleDot} />
+                                        <FontAwesomeIcon className="text-[0.8rem] 2xl:text-[1.2rem]" icon={faCircleDot} />
                                         <p className="day">{finalDepDay}</p>
-                                        <FontAwesomeIcon className="text-[20px]" icon={faCircleDot} />
+                                        <FontAwesomeIcon className="text-[0.8rem] 2xl:text-[1.2rem]" icon={faCircleDot} />
                                         <p className="dateOfJourney">{finalDepDate}</p>
                                     </div>
                                 </div>
-                                <div className="flex flex-col gap-[30px] pt-[15px] pb-[40px] pl-[40px]">
+                                <div className="flex flex-col gap-[1rem] 2xl:gap-[2rem] 2xl:pt-[1rem] 2xl:pl-[40px]">
                                     <div className="font-bold">
                                         <h2>Return Flight</h2>
                                     </div>
@@ -78,16 +81,16 @@ export const CheckOut = () => {
                                         <p className="durationstops">{finalReturnDepartureTime} - {finalReturnArrivalTime} ({finalReturnDuration}, {returnNoOfStops != null ? (returnNoOfStops === 0 ? "Non-stop" : `${returnNoOfStops} stop${returnNoOfStops > 1 ? "s" : ""} ${returnLayover?.join(", ")}`) : null})</p>
                                     </div>
 
-                                    <div className="flex justify-start gap-[50px] items-center">
+                                    <div className="flex justify-start gap-[0.5rem] 2xl:gap-[3rem] items-center">
                                         <p className="craftName">{returnCarrierName}</p>
-                                        <FontAwesomeIcon className="text-[20px]" icon={faCircleDot} />
+                                        <FontAwesomeIcon className="text-[0.8rem] 2xl:text-[1.2rem]" icon={faCircleDot} />
                                         <p className="day">{finalReturnDay}</p>
-                                        <FontAwesomeIcon className="text-[20px]" icon={faCircleDot} />
+                                        <FontAwesomeIcon className="text-[0.8rem] 2xl:text-[1.2rem]" icon={faCircleDot} />
                                         <p className="dateOfJourney">{finalReturnDate}</p>
                                     </div>
                                 </div>
                             </div>) : (
-                            <div className="bg-[#F0EFE7] w-[1200px] h-[550px] rounded-[80px] text-[40px] flex flex-col justify-evenly pb-[40px] pl-[40px] mt-[40px]">
+                            <div className="bg-[#F0EFE7] flex flex-col justify-center items-start pl-[1rem] gap-[1rem] 2xl:gap-[2rem] w-[80vw] h-[30vh] sm:w-[40vw] max-w-[1200px] max-h-[550px] rounded-[40px] 2xl:text-[40px] 2xl:rounded-[80px] 2xl:mt-[40px]">
                                 <div className="font-bold">
                                     <h2>Flight Details: One-Way Trip</h2>
                                 </div>
@@ -96,11 +99,11 @@ export const CheckOut = () => {
                                     <p className="durationstops">{departureTime} - {arrivalTime} ({finalDuration}, {noOfStops != null ? (noOfStops === 0 ? "Non-stop" : `${noOfStops} stop${noOfStops > 1 ? "s" : ""} ${layOver?.join(", ")}`) : null})</p>
                                 </div>
 
-                                <div className="flex justify-start gap-[50px] items-center">
+                                <div className="flex justify-start gap-[0.5rem] 2xl:gap-[3rem] items-center">
                                     <p className="craftName">{carrierName}</p>
-                                    <FontAwesomeIcon className="text-[20px]" icon={faCircleDot} />
+                                    <FontAwesomeIcon className="text-[0.8rem] 2xl:text-[1.2rem]" icon={faCircleDot} />
                                     <p className="day">{finalDepDay}</p>
-                                    <FontAwesomeIcon className="text-[20px]" icon={faCircleDot} />
+                                    <FontAwesomeIcon className="text-[0.8rem] 2xl:text-[1.2rem]" icon={faCircleDot} />
                                     <p className="dateOfJourney">{finalDepDate}</p>
                                 </div>
                             </div>
@@ -108,7 +111,7 @@ export const CheckOut = () => {
                         }
                     </div>
 
-                    <div className="bg-[#F0EFE7] w-[1200px] h-[550px] rounded-[80px] text-[40px] flex flex-col justify-evenly pb-[40px] pl-[40px]">
+                    <div className={`bg-[#F0EFE7] flex flex-col justify-center items-start pl-[1rem] gap-[1rem] 2xl:gap-[2rem] w-[80vw] h-[30vh] ${selectedTypeOfTrip === "round" ? "sm:w-[80vw]" : "sm:w-[40vw]"}  md:w-[40vw] ax-w-[1200px] max-h-[550px] rounded-[40px] 2xl:text-[40px] 2xl:rounded-[80px] 2xl:mt-[40px] 2xl:pb-[40px] 2xl:pl-[40px] `}>
                         <div className="font-bold">
                             <h2>Your Fare: Regular Fare</h2>
                         </div>
@@ -120,10 +123,10 @@ export const CheckOut = () => {
                         </div>
                     </div>
                 </div>
-                {typeOfTrip === "round" ? (<div className="bg-[#F0EFE7] w-[1200px] h-[1400px] rounded-[80px] text-[40px] flex flex-col justify-start mt-[50px] pt-[50px] px-[40px]">
-                    <h1 className="font-bold">Price Summary</h1>
-                    <div className="mb-[200px]">
-                        <div className="flex justify-between mt-[50px]">
+                {typeOfTrip === "round" ? (<div className="bg-[#F0EFE7] flex flex-col justify-start w-[80vw] h-[45vh] sm:h-[50vh] md:h-[85vh] px-[1.5rem] max-w-[1200px] max-h-[1400px] rounded-[40px] 2xl:rounded-[80px] 2xl:text-[40px] 2xl:mt-[40px]">
+                    <h1 className="pt-[1rem] font-bold">Price Summary</h1>
+                    <div className=" 2xl:mb-[200px]">
+                        <div className="flex justify-between mt-[1rem] 2xl:mt-[50px]">
                             <div className="font-bold">
                                 <h3>{seats} Adult</h3>
                             </div>
@@ -133,7 +136,7 @@ export const CheckOut = () => {
                             </div>
                         </div>
 
-                        <div className="flex justify-between mt-[50px]">
+                        <div className="flex justify-between mt-[2rem]">
                             <div className="font-bold">
                                 <h3>Flight</h3>
                                 <h3>Taxes, fees and charges</h3>
@@ -145,21 +148,21 @@ export const CheckOut = () => {
                         </div>
                     </div>
 
-                    <hr className="bg-[#6D99B5] h-[10px] mb-[30px]" />
-                    <div className="flex justify-between items-center mt-[10%] mb-[20%]">
+                    <hr className="bg-[#6D99B5] h-[5px] mt-[1rem] 2xl:h-[10px] 2xl:mb-[30px]" />
+                    <div className="flex justify-between items-center mt-[5%] mb-[5%] md:mt-[10%] :mb-[10%]">
                         <h2 className="font-bold">Trip-total</h2>
                         <p>₹{amountInINR}</p>
                     </div>
                     <div className="flex justify-center items-center  ">
-                        <button className="bg-[#6D99B5] text-[white] w-[800px] h-[150px] rounded-[30px] cursor-pointer">Check Out</button>
+                        <button className="bg-[#6D99B5] w-[40vw] h-[5vh] max-w-[448px] max-h-[81px] rounded-[30px] cursor-pointer">Check Out</button>
                     </div>
 
                 </div>
                 ) : (
-                    <div className="bg-[#F0EFE7] w-[1200px] h-[1200px] rounded-[80px] text-[40px] flex flex-col justify-start mt-[50px] pt-[30px] px-[40px] ">
-                        <h1 className="font-bold">Price Summary</h1>
-                        <div className="mb-[200px]">
-                            <div className="flex justify-between mt-[50px]">
+                    <div className="bg-[#F0EFE7] flex flex-col justify-start w-[80vw] h-[40vh] sm:w-[85vw] sm:h-[50vh] md:h-[70vh] px-[1.5rem] max-w-[1200px] max-h-[1400px] rounded-[40px] 2xl:rounded-[80px] 2xl:text-[40px] 2xl:mt-[40px]">
+                        <h1 className="pt-[1rem] font-bold">Price Summary</h1>
+                        <div className=" 2xl:mb-[200px]">
+                            <div className="flex justify-between mt-[1rem] 2xl:mt-[50px]">
                                 <div className="font-bold">
                                     <h3>{seats} Adult</h3>
                                 </div>
@@ -169,7 +172,7 @@ export const CheckOut = () => {
                                 </div>
                             </div>
 
-                            <div className="flex justify-between mt-[50px]">
+                            <div className="flex justify-between mt-[2rem]">
                                 <div className="font-bold">
                                     <h3>Flight</h3>
                                     <h3>Taxes, fees and charges</h3>
@@ -181,13 +184,13 @@ export const CheckOut = () => {
                             </div>
                         </div>
 
-                        <hr className="bg-[#6D99B5] h-[10px] mb-[30px]" />
-                        <div className="flex justify-between items-center mt-[10%] mb-[10%]">
+                        <hr className="bg-[#6D99B5] h-[5px] mt-[1rem] 2xl:h-[10px] 2xl:mb-[30px]" />
+                        <div className="flex justify-between items-center mt-[5%] mb-[5%] md:mt-[10%] :mb-[10%]">
                             <h2 className="font-bold">Trip-total</h2>
                             <p>₹{amountInINR}</p>
                         </div>
                         <div className="flex justify-center items-center  ">
-                            <button className="bg-[#6D99B5] w-[448px] h-[81px] rounded-[30px] cursor-pointer">Check Out</button>
+                            <button className="bg-[#6D99B5] w-[40vw] h-[5vh] max-w-[448px] max-h-[81px] rounded-[30px] cursor-pointer">Check Out</button>
                         </div>
 
                     </div>
